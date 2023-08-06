@@ -64,12 +64,7 @@ public class Usuario {
     }
 
     public void setCorreo(String correo) {
-        try {
-            this.validacion.validarCorreo(correo);
-            this.correo = correo;
-        }catch(Exception error){
-            System.out.println(error.getMessage());
-        }
+
 
     }
 

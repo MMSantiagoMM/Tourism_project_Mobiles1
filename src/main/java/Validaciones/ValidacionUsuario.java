@@ -7,12 +7,11 @@ public class ValidacionUsuario {
     private UtilidadRegrex util = new UtilidadRegrex();
 
     public Boolean validarNombre(String nombre) throws Exception {
-        if(!util.funcionRegex(nombre,"^[ a-zA-Z]+$")){
-            throw new Exception("Revise su formato de nombre");
+        if(nombre.length() < 10){
+            throw new Exception("Numero de carácteres inválido. El campo debe tener mínimo 10 letras");
         }
-        if(nombre.length() <= 11){
-            throw new Exception("Numero de caracteres no válido");
-        }
+
+
         return true;
 
     }
@@ -23,10 +22,8 @@ public class ValidacionUsuario {
         return true;
     }
 
-    public Boolean validarCorreo(String correo) throws Exception{
-        if(!util.funcionRegex(correo,"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
-            throw new Exception("Correo no válido");
-        }
+    public Boolean validarCorreo(String correo) {
+
         return true;
     }
 
