@@ -1,10 +1,10 @@
 package org.example.validaciones;
 
 import org.example.Utilidades.ExpresionesRegulares;
-import org.example.Utilidades.MinimoLetras;
+import org.example.Utilidades.CantidadLetras;
 
 public class ValidacionUsuario {
-    MinimoLetras utilNombre = new MinimoLetras();
+    CantidadLetras utilNombre = new CantidadLetras();
     ExpresionesRegulares utilRegExp = new ExpresionesRegulares();
 
     public Boolean validarUsuario(String nombre) throws Exception{

@@ -1,20 +1,25 @@
 package org.example.modelos;
 
+import org.example.Utilidades.Fechas;
+import org.example.validaciones.ValidacionOferta;
+
 import java.time.LocalDate;
 
 public class Oferta {
     private Integer id;
     private String titulo;
     private String descripcion;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    private String fechaInicio;
+    private String fechaFin;
     private Double costoPersona;
     private Integer idLocal;
+    ValidacionOferta validateOffer = new ValidacionOferta();
+    Fechas formato = new Fechas();
 
     public Oferta() {
     }
 
-    public Oferta(Integer id, String titulo, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, Double costoPersona, Integer idLocal) {
+    public Oferta(Integer id, String titulo, String descripcion, String fechaInicio, String fechaFin, Double costoPersona, Integer idLocal) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -22,6 +27,7 @@ public class Oferta {
         this.fechaFin = fechaFin;
         this.costoPersona = costoPersona;
         this.idLocal = idLocal;
+
     }
 
     @Override
@@ -50,7 +56,12 @@ public class Oferta {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        try {
+            this.validateOffer.validarTituloOferta(titulo);
+            this.titulo = titulo;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public String getDescripcion() {
@@ -62,18 +73,24 @@ public class Oferta {
     }
 
     public LocalDate getFechaInicio() {
-        return fechaInicio;
+        try{
+            return this.formato.convertirFechas(this.fechaInicio);
+        }catch (Exception e){
+            System.out.println(e.getMessage() + "Formato de fecha no válido");
+        }
+        return null;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
+
         this.fechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 
