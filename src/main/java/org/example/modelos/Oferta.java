@@ -99,7 +99,12 @@ public class Oferta {
     }
 
     public void setCostoPersona(Double costoPersona) {
-        this.costoPersona = costoPersona;
+        try {
+            this.validateOffer.validarCostoPersona(costoPersona);
+            this.costoPersona = costoPersona;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Integer getIdLocal() {

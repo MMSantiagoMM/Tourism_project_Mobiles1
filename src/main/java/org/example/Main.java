@@ -41,10 +41,16 @@ public class Main {
         ofertaOne.setTitulo(read.nextLine());
         System.out.println(ofertaOne.getTitulo());
 
-         */
+
         System.out.println("Ingrese la fecha de inicio");
         ofertaOne.setFechaInicio(read.next());
         System.out.println(ofertaOne.getFechaInicio());
+
+         */
+
+        System.out.println("Ingrese el costo por persona");
+        ofertaOne.setCostoPersona(read.nextDouble());
+        System.out.println(ofertaOne.getCostoPersona());
 
     }
 }

@@ -17,9 +17,13 @@ public class ValidacionOferta {
         }
     }
 
-    public Boolean compararFechas(String fecha,String fecha2 )throws Exception {
-       return true;
-    }
+   public Boolean validarCostoPersona (Double costoPer) throws Exception{
+        if(costoPer < 0){
+            throw new Exception("El costo no puede ser negativo");
+        }else {
+            return true;
+        }
+   }
 
 
 
