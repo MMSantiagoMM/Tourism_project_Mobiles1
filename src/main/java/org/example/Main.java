@@ -1,17 +1,70 @@
 package org.example;
 
-import Modelos.Usuario;
+
+import org.example.Utilidades.ExpresionesRegulares;
+import org.example.Utilidades.Fechas;
+import org.example.modelos.Local;
+import org.example.modelos.Oferta;
+import org.example.modelos.Usuario;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner read = new Scanner(System.in);
-        Usuario usuario1 = new Usuario();
-        System.out.println("Ingrese el nombre");
-        usuario1.setNombres(read.nextLine());
+        Scanner read = new Scanner (System.in);
+        Fechas fecha = new Fechas();
+        ExpresionesRegulares regExp = new ExpresionesRegulares();
 
-        System.out.println("Escriba el correo");
-        usuario1.setCorreo(read.next());
+        Usuario userOne = new Usuario();
+        Local localOne = new Local();
+        Oferta ofertaOne = new Oferta();
+        Fechas convertir = new Fechas();
+        /*
+        System.out.println("Ingrese el nombre del usuario");
+        userOne.setNombres(read.nextLine());
+        System.out.println(userOne.getNombres());
+
+        System.out.println("Ingrese la ubicacion");
+        userOne.setUbicacion(read.nextInt());
+        System.out.println(userOne.getUbicacion());
+
+        System.out.println("Ingrese el correo electrónico");
+        userOne.setCorreo(read.next());
+        System.out.println(userOne.getCorreo());
+
+        System.out.println("Ingrese el nit del local");
+        localOne.setNit(read.next());
+        System.out.println(localOne.getNit());
+
+        System.out.println("Ingrese el nombre del local");
+        localOne.setNombre(read.next());
+        System.out.println(localOne.getNombre());
+
+        System.out.println("Ingrese el titulo de la oferta");
+        ofertaOne.setTitulo(read.nextLine());
+        System.out.println(ofertaOne.getTitulo());
+
+
+        System.out.println("Ingrese la fecha de inicio");
+        ofertaOne.setFechaInicio(read.next());
+        System.out.println(ofertaOne.getFechaInicio());
+
+
+
+        System.out.println("Ingrese el costo por persona");
+        ofertaOne.setCostoPersona(read.nextDouble());
+        System.out.println(ofertaOne.getCostoPersona());
+        */
+
+        System.out.println("Ingrese la fecha inicio con el formato (dd/MM/yyyy)");
+        ofertaOne.setFechaInicio(read.next());
+        System.out.println(ofertaOne.getFechaInicio());
+
+        System.out.println("Ingrese la fecha de finalización con el formato (dd/MM/yyyy)");
+        ofertaOne.setFechaFin(read.next());
+        System.out.println(ofertaOne.getFechaFin());
+
+
+
     }
 }

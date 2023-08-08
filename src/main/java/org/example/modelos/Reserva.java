@@ -1,16 +1,18 @@
-package Modelos;
+package org.example.modelos;
+
+import java.time.LocalDate;
 
 public class Reserva {
     private Integer id;
     private Integer idUsuario;
     private Integer idOferta;
     private Double costoTotal;
-    private String fechaReserva;
+    private LocalDate fechaReserva;
 
     public Reserva() {
     }
 
-    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, String fechaReserva) {
+    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idOferta = idOferta;
@@ -25,7 +27,7 @@ public class Reserva {
                 ", idUsuario=" + idUsuario +
                 ", idOferta=" + idOferta +
                 ", costoTotal=" + costoTotal +
-                ", fechaReserva='" + fechaReserva + '\'' +
+                ", fechaReserva=" + fechaReserva +
                 '}';
     }
 
@@ -61,11 +63,11 @@ public class Reserva {
         this.costoTotal = costoTotal;
     }
 
-    public String getFechaReserva() {
+    public LocalDate getFechaReserva() {
         return fechaReserva;
     }
 
-    public void setFechaReserva(String fechaReserva) {
+    public void setFechaReserva(LocalDate fechaReserva) {
         this.fechaReserva = fechaReserva;
     }
 }

@@ -1,6 +1,6 @@
-package Modelos;
+package org.example.modelos;
 
-import Validaciones.ValidacionUsuario;
+import org.example.validaciones.ValidacionUsuario;
 
 public class Usuario {
     private Integer id;
@@ -8,7 +8,8 @@ public class Usuario {
     private String nombres;
     private String correo;
     private Integer ubicacion;
-    private ValidacionUsuario validacion = new ValidacionUsuario();
+    ValidacionUsuario validateUser = new ValidacionUsuario();
+
     public Usuario() {
     }
 
@@ -19,6 +20,7 @@ public class Usuario {
         this.correo = correo;
         this.ubicacion = ubicacion;
     }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -52,11 +54,13 @@ public class Usuario {
 
     public void setNombres(String nombres) {
         try{
-            this.validacion.validarNombre(nombres);
-            this.nombres=nombres;
-        }catch(Exception e){
+            this.validateUser.validarUsuario(nombres);
+            this.nombres = nombres;
+        }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
+
     }
 
     public String getCorreo() {
@@ -64,13 +68,12 @@ public class Usuario {
     }
 
     public void setCorreo(String correo) {
-        try {
-            this.validacion.validarCorreo(correo);
-            this.correo = correo;
-        }catch(Exception error){
-            System.out.println(error.getMessage());
+        try{
+            this.validateUser.validarCorreo(correo);
+            this.correo=correo;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
-
     }
 
     public Integer getUbicacion() {
@@ -78,8 +81,11 @@ public class Usuario {
     }
 
     public void setUbicacion(Integer ubicacion) {
-        this.ubicacion = ubicacion;
+        try{
+            this.validateUser.validarUbicacion(ubicacion);
+            this.ubicacion = ubicacion;
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
-
-
 }

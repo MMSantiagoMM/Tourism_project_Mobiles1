@@ -1,18 +1,24 @@
-package Modelos;
+package org.example.modelos;
+
+import org.example.Utilidades.Fechas;
+import org.example.validaciones.ValidacionOferta;
+
+import java.time.LocalDate;
 
 public class Oferta {
     private Integer id;
     private String titulo;
     private String descripcion;
-    private String fechaInicio;
-    private String fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private Double costoPersona;
     private Integer idLocal;
+    ValidacionOferta validateOffer = new ValidacionOferta();
 
     public Oferta() {
     }
 
-    public Oferta(Integer id, String titulo, String descripcion, String fechaInicio, String fechaFin, Double costoPersona, Integer idLocal) {
+    public Oferta(Integer id, String titulo, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, Double costoPersona, Integer idLocal) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -20,6 +26,7 @@ public class Oferta {
         this.fechaFin = fechaFin;
         this.costoPersona = costoPersona;
         this.idLocal = idLocal;
+
     }
 
     @Override
@@ -28,8 +35,8 @@ public class Oferta {
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", fechaInicio='" + fechaInicio + '\'' +
-                ", fechaFin='" + fechaFin + '\'' +
+                ", fechaInicio=" + fechaInicio +
+                ", fechaFin=" + fechaFin +
                 ", costoPersona=" + costoPersona +
                 ", idLocal=" + idLocal +
                 '}';
@@ -48,7 +55,12 @@ public class Oferta {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        try {
+            this.validateOffer.validarTituloOferta(titulo);
+            this.titulo = titulo;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public String getDescripcion() {
@@ -59,20 +71,34 @@ public class Oferta {
         this.descripcion = descripcion;
     }
 
-    public String getFechaInicio() {
+
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
     public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
+
+        try{
+            LocalDate fechaNueva = validateOffer.validarYConvertirAFecha(fechaInicio);
+            this.fechaInicio = fechaNueva;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
-    public String getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
     public void setFechaFin(String fechaFin) {
-        this.fechaFin = fechaFin;
+        try{
+            LocalDate fechaNueva = validateOffer.validarYConvertirAFecha(fechaFin);
+            validateOffer.compararFechas(this.fechaInicio,fechaNueva);
+            this.fechaFin = fechaNueva;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Double getCostoPersona() {
@@ -80,7 +106,12 @@ public class Oferta {
     }
 
     public void setCostoPersona(Double costoPersona) {
-        this.costoPersona = costoPersona;
+        try {
+            this.validateOffer.validarCostoPersona(costoPersona);
+            this.costoPersona = costoPersona;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Integer getIdLocal() {
