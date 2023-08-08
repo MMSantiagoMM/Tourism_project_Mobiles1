@@ -2,16 +2,21 @@ package org.example.validaciones;
 
 import org.example.Utilidades.ExpresionesRegulares;
 import org.example.Utilidades.CantidadLetras;
+import org.example.Utilidades.Fechas;
+import org.example.Utilidades.Mensaje;
+
+import java.time.LocalDate;
 
 public class ValidacionUsuario {
     CantidadLetras utilNombre = new CantidadLetras();
     ExpresionesRegulares utilRegExp = new ExpresionesRegulares();
+    Fechas formFecha = new Fechas();
 
     public Boolean validarUsuario(String nombre) throws Exception{
         if(!utilNombre.validarMinLetras(nombre,11)){
-            throw new Exception("Cantidad de letras inválido");
+            throw new Exception(Mensaje.LONGITUD_NOMBRE.getMensaje());
         }else if(!utilRegExp.validarRegExp(nombre,"^[ a-zA-Z0-9]+$")){
-            throw new Exception("El nombre no debe contener números");
+            throw new Exception(Mensaje.FORMATO_NOMBRE.getMensaje());
         }else {
             return true;
         }
@@ -33,6 +38,8 @@ public class ValidacionUsuario {
         }
 
     }
+
+
 
 
 

@@ -9,17 +9,16 @@ public class Oferta {
     private Integer id;
     private String titulo;
     private String descripcion;
-    private String fechaInicio;
-    private String fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private Double costoPersona;
     private Integer idLocal;
     ValidacionOferta validateOffer = new ValidacionOferta();
-    Fechas formato = new Fechas();
 
     public Oferta() {
     }
 
-    public Oferta(Integer id, String titulo, String descripcion, String fechaInicio, String fechaFin, Double costoPersona, Integer idLocal) {
+    public Oferta(Integer id, String titulo, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, Double costoPersona, Integer idLocal) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -72,26 +71,34 @@ public class Oferta {
         this.descripcion = descripcion;
     }
 
+
     public LocalDate getFechaInicio() {
-        try{
-            return this.formato.convertirFechas(this.fechaInicio);
-        }catch (Exception e){
-            System.out.println(e.getMessage() + "Formato de fecha no válido");
-        }
-        return null;
+        return fechaInicio;
     }
 
     public void setFechaInicio(String fechaInicio) {
 
-        this.fechaInicio = fechaInicio;
+        try{
+            LocalDate fechaNueva = validateOffer.validarYConvertirAFecha(fechaInicio);
+            this.fechaInicio = fechaNueva;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
-    public String getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
     public void setFechaFin(String fechaFin) {
-        this.fechaFin = fechaFin;
+        try{
+            LocalDate fechaNueva = validateOffer.validarYConvertirAFecha(fechaFin);
+            validateOffer.compararFechas(this.fechaInicio,fechaNueva);
+            this.fechaFin = fechaNueva;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Double getCostoPersona() {

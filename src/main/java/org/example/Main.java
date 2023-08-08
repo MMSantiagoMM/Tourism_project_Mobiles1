@@ -1,6 +1,7 @@
 package org.example;
 
 
+import org.example.Utilidades.ExpresionesRegulares;
 import org.example.Utilidades.Fechas;
 import org.example.modelos.Local;
 import org.example.modelos.Oferta;
@@ -12,10 +13,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner read = new Scanner (System.in);
         Fechas fecha = new Fechas();
+        ExpresionesRegulares regExp = new ExpresionesRegulares();
 
         Usuario userOne = new Usuario();
         Local localOne = new Local();
         Oferta ofertaOne = new Oferta();
+        Fechas convertir = new Fechas();
         /*
         System.out.println("Ingrese el nombre del usuario");
         userOne.setNombres(read.nextLine());
@@ -46,11 +49,22 @@ public class Main {
         ofertaOne.setFechaInicio(read.next());
         System.out.println(ofertaOne.getFechaInicio());
 
-         */
+
 
         System.out.println("Ingrese el costo por persona");
         ofertaOne.setCostoPersona(read.nextDouble());
         System.out.println(ofertaOne.getCostoPersona());
+        */
+
+        System.out.println("Ingrese la fecha inicio con el formato (dd/MM/yyyy)");
+        ofertaOne.setFechaInicio(read.next());
+        System.out.println(ofertaOne.getFechaInicio());
+
+        System.out.println("Ingrese la fecha de finalización con el formato (dd/MM/yyyy)");
+        ofertaOne.setFechaFin(read.next());
+        System.out.println(ofertaOne.getFechaFin());
+
+
 
     }
 }
