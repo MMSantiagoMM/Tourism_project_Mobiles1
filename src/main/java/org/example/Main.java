@@ -4,6 +4,7 @@ package org.example;
 import org.example.models.Offer;
 import org.example.models.Stablishment;
 import org.example.models.User;
+import org.example.utilities.MyDate;
 
 import java.util.Scanner;
 
@@ -41,6 +42,20 @@ public class Main {
         System.out.println("Add your offer's title");
         offerOne.setTitle(read.nextLine());
         System.out.println(offerOne.getTitle());
-        */
+
+
+        System.out.println("Add the begining's date of your event");
+        offerOne.setDateBegining(read.next());
+        System.out.println(offerOne.getDateBegining());
+
+        System.out.println("Add the last's date of your event");
+        offerOne.setDateLast(read.next());
+        System.out.println(offerOne.getDateLast());
+
+         */
+
+        System.out.println("Add the person cost");
+        offerOne.setCostPerson(read.nextDouble());
+        System.out.println(offerOne.getCostPerson());
     }
 }

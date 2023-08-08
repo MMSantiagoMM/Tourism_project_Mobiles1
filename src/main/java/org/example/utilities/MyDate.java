@@ -6,8 +6,9 @@ import java.time.format.DateTimeFormatter;
 public class MyDate {
 
     public static LocalDate changeFormat(String date){
-        DateTimeFormatter newFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate newFormatter = LocalDate.parse(date,formatter);
+        return newFormatter;
     }
 
 

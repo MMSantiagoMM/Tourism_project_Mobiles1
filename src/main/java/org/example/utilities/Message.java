@@ -7,7 +7,10 @@ public enum Message {
     LOCATION_INVALID("Your location must be between 0 and 4"),
     ONLY_NUMBERS("Please, only number in this field"),
     QUANTITY_NUMBERS_NIT("This field only accept 10 digits"),
-    QUANTITY_CHARACTER_FIELD("This field doesn't have required characters");
+    QUANTITY_CHARACTER_FIELD("This field doesn't have required characters"),
+    FORMAT_DATES("Thif format date is not valid"),
+    DATE_VALIDATION("The last date must not be less that begining date"),
+    COST_PERSON("person cost must not be negative");
 
     private String message;
 

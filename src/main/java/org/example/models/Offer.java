@@ -72,16 +72,27 @@ public class Offer {
         return dateBegining;
     }
 
-    public void setDateBegining(LocalDate dateBegining) {
-        this.dateBegining = dateBegining;
+    public void setDateBegining(String dateBegining) {
+        try{
+            LocalDate newFormat = validateFormat(dateBegining);
+            this.dateBegining = newFormat;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public LocalDate getDateLast() {
         return dateLast;
     }
 
-    public void setDateLast(LocalDate dateLast) {
-        this.dateLast = dateLast;
+    public void setDateLast(String dateLast) {
+        try{
+            LocalDate newFormat = validateFormat(dateLast);
+            validateDatesBeginingAndLast(this.dateBegining,newFormat);
+            this.dateLast = newFormat;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Double getCostPerson() {
@@ -89,7 +100,12 @@ public class Offer {
     }
 
     public void setCostPerson(Double costPerson) {
-        this.costPerson = costPerson;
+        try{
+            validateCostPerson(costPerson);
+            this.costPerson = costPerson;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Integer getIdStablishment() {
