@@ -23,14 +23,14 @@ public class Main {
         System.out.println("Ingrese el correo electrónico");
         usuario.setCorreo(read.next());
         System.out.println(usuario.getCorreo());
-*/
+
 
         System.out.println("Ingrese el nit del local");
         local.setNit(read.next());
         System.out.println(local.getNit());
-
+*/
         System.out.println("Ingrese el nombre del local");
-        local.setNombre(read.next());
+        local.setNombre(read.nextLine());
         System.out.println(local.getNombre());
 
     }

@@ -14,11 +14,15 @@ public class LocalValidacion {
         return true;
     }
 
-    public static Boolean validarNombre(String nombre) throws Exception{
-        if(!maximoLetras(nombre,31)){
+    public static Boolean validarNombre(String nombre) throws Exception {
+        if (!maximoLetras(nombre, 31)) {
             throw new Exception(Mensaje.CANTIDADLETRAS.getMensaje());
+        } else if (regExp(nombre,"^[ a-zA-Z0-9._%+-]$")) {
+            throw new Exception();
         }
         return true;
+
+
     }
 
 

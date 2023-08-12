@@ -1,6 +1,5 @@
 package org.example.modelos;
 
-import java.security.spec.ECField;
 
 import static org.example.validacion.UsuarioValidacion.*;
 
