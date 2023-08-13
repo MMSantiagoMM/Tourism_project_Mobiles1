@@ -1,15 +1,13 @@
 package org.example.modelos;
 
-import org.example.validaciones.ValidacionLocal;
+import static org.example.validacion.LocalValidacion.*;
 
 public class Local {
-
     private Integer id;
     private String nit;
     private String nombre;
     private Integer ubicacion;
     private String descripcion;
-    ValidacionLocal validateLocal = new ValidacionLocal();
 
     public Local() {
     }
@@ -47,9 +45,9 @@ public class Local {
 
     public void setNit(String nit) {
         try{
-            this.validateLocal.validarNit(nit);
+            validarNit(nit);
             this.nit = nit;
-        } catch(Exception e){
+        }catch(Exception e){
             System.out.println(e.getMessage());
         }
     }
@@ -59,12 +57,12 @@ public class Local {
     }
 
     public void setNombre(String nombre) {
-        try{
-            this.validateLocal.validarNombreEmpresa(nombre);
-            this.nombre = nombre;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+       try{
+           validarNombre(nombre);
+           this.nombre = nombre;
+       }catch (Exception e){
+           System.out.println(e.getMessage());
+       }
     }
 
     public Integer getUbicacion() {

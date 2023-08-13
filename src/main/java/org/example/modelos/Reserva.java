@@ -1,5 +1,7 @@
 package org.example.modelos;
 
+import static org.example.validacion.ReservaValidacion.*;
+
 import java.time.LocalDate;
 
 public class Reserva {
@@ -8,16 +10,18 @@ public class Reserva {
     private Integer idOferta;
     private Double costoTotal;
     private LocalDate fechaReserva;
+    private Integer cantidadPersonas;
 
     public Reserva() {
     }
 
-    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva) {
+    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva,Integer cantidadPersonas) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idOferta = idOferta;
         this.costoTotal = costoTotal;
         this.fechaReserva = fechaReserva;
+        this.cantidadPersonas = cantidadPersonas;
     }
 
     @Override
@@ -28,6 +32,7 @@ public class Reserva {
                 ", idOferta=" + idOferta +
                 ", costoTotal=" + costoTotal +
                 ", fechaReserva=" + fechaReserva +
+                ", cantidadPersonas=" + cantidadPersonas +
                 '}';
     }
 
@@ -67,7 +72,24 @@ public class Reserva {
         return fechaReserva;
     }
 
-    public void setFechaReserva(LocalDate fechaReserva) {
-        this.fechaReserva = fechaReserva;
+    public void setFechaReserva(String fechaReserva) {
+        try{
+            LocalDate nuevaFecha = validarFecha(fechaReserva);
+            this.fechaReserva = nuevaFecha;
+        } catch (Exception e){
+            System.out.println(e.getMessage());}
+    }
+
+    public Integer getCantidadPersonas() {
+        return cantidadPersonas;
+    }
+
+    public void setCantidadPersonas(Integer cantidadPersonas) {
+        try{
+            validarCantidadPersonas(cantidadPersonas);
+            this.cantidadPersonas = cantidadPersonas;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

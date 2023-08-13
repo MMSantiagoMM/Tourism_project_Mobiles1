@@ -1,6 +1,7 @@
 package org.example.modelos;
 
-import org.example.validaciones.ValidacionUsuario;
+
+import static org.example.validacion.UsuarioValidacion.*;
 
 public class Usuario {
     private Integer id;
@@ -8,15 +9,14 @@ public class Usuario {
     private String nombres;
     private String correo;
     private Integer ubicacion;
-    ValidacionUsuario validateUser = new ValidacionUsuario();
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String documento, String nombres, String correo, Integer ubicacion) {
+    public Usuario(Integer id, String documento, String nombres , String correo, Integer ubicacion) {
         this.id = id;
         this.documento = documento;
-        this.nombres = nombres;
+        this.nombres = nombres ;
         this.correo = correo;
         this.ubicacion = ubicacion;
     }
@@ -26,7 +26,7 @@ public class Usuario {
         return "Usuario{" +
                 "id=" + id +
                 ", documento='" + documento + '\'' +
-                ", nombres='" + nombres + '\'' +
+                ", nombres ='" + nombres + '\'' +
                 ", correo='" + correo + '\'' +
                 ", ubicacion=" + ubicacion +
                 '}';
@@ -48,19 +48,17 @@ public class Usuario {
         this.documento = documento;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombres () {
+        return nombres ;
     }
 
-    public void setNombres(String nombres) {
+    public void setNombres (String nombres ) {
         try{
-            this.validateUser.validarUsuario(nombres);
+            validarNombre(nombres);
             this.nombres = nombres;
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-
-
     }
 
     public String getCorreo() {
@@ -69,9 +67,9 @@ public class Usuario {
 
     public void setCorreo(String correo) {
         try{
-            this.validateUser.validarCorreo(correo);
-            this.correo=correo;
-        }catch (Exception e){
+            validarCorreo(correo);
+            this.correo = correo;
+        }catch(Exception e){
             System.out.println(e.getMessage());
         }
     }
@@ -80,11 +78,10 @@ public class Usuario {
         return ubicacion;
     }
 
-    public void setUbicacion(Integer ubicacion) {
+    public void setUbicacion(String ubicacion) {
         try{
-            this.validateUser.validarUbicacion(ubicacion);
-            this.ubicacion = ubicacion;
-        } catch (Exception e){
+            this.ubicacion = validrUbicacion(ubicacion);
+        }catch(Exception e){
             System.out.println(e.getMessage());
         }
     }

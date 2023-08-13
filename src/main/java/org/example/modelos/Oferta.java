@@ -1,7 +1,6 @@
 package org.example.modelos;
 
-import org.example.Utilidades.Fechas;
-import org.example.validaciones.ValidacionOferta;
+import static org.example.validacion.OfertaValidacion.*;
 
 import java.time.LocalDate;
 
@@ -13,7 +12,6 @@ public class Oferta {
     private LocalDate fechaFin;
     private Double costoPersona;
     private Integer idLocal;
-    ValidacionOferta validateOffer = new ValidacionOferta();
 
     public Oferta() {
     }
@@ -26,7 +24,6 @@ public class Oferta {
         this.fechaFin = fechaFin;
         this.costoPersona = costoPersona;
         this.idLocal = idLocal;
-
     }
 
     @Override
@@ -55,10 +52,10 @@ public class Oferta {
     }
 
     public void setTitulo(String titulo) {
-        try {
-            this.validateOffer.validarTituloOferta(titulo);
+        try{
+            validarTitulo(titulo);
             this.titulo = titulo;
-        }catch(Exception e){
+        }catch(Exception e ){
             System.out.println(e.getMessage());
         }
     }
@@ -71,20 +68,16 @@ public class Oferta {
         this.descripcion = descripcion;
     }
 
-
     public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
     public void setFechaInicio(String fechaInicio) {
-
         try{
-            LocalDate fechaNueva = validateOffer.validarYConvertirAFecha(fechaInicio);
-            this.fechaInicio = fechaNueva;
+            this.fechaInicio = validarFecha(fechaInicio);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
     }
 
     public LocalDate getFechaFin() {
@@ -93,9 +86,9 @@ public class Oferta {
 
     public void setFechaFin(String fechaFin) {
         try{
-            LocalDate fechaNueva = validateOffer.validarYConvertirAFecha(fechaFin);
-            validateOffer.compararFechas(this.fechaInicio,fechaNueva);
-            this.fechaFin = fechaNueva;
+            LocalDate nuevaFecha = validarFecha(fechaFin);
+            validarFechaFinValida(this.fechaInicio,nuevaFecha);
+            this.fechaFin = nuevaFecha;
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
@@ -106,9 +99,8 @@ public class Oferta {
     }
 
     public void setCostoPersona(Double costoPersona) {
-        try {
-            this.validateOffer.validarCostoPersona(costoPersona);
-            this.costoPersona = costoPersona;
+        try{
+            this.costoPersona =   validarCostoPersona(costoPersona);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
