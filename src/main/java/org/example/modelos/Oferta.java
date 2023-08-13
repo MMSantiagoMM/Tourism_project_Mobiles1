@@ -1,5 +1,7 @@
 package org.example.modelos;
 
+import static org.example.validacion.OfertaValidacion.*;
+
 import java.time.LocalDate;
 
 public class Oferta {
@@ -50,7 +52,12 @@ public class Oferta {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        try{
+            validarTitulo(titulo);
+            this.titulo = titulo;
+        }catch(Exception e ){
+            System.out.println(e.getMessage());
+        }
     }
 
     public String getDescripcion() {
@@ -65,16 +72,26 @@ public class Oferta {
         return fechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechaInicio(String fechaInicio) {
+        try{
+            this.fechaInicio = validarFecha(fechaInicio);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechaFin(String fechaFin) {
+        try{
+            LocalDate nuevaFecha = validarFecha(fechaFin);
+            validarFechaFinValida(this.fechaInicio,nuevaFecha);
+            this.fechaFin = nuevaFecha;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Double getCostoPersona() {
@@ -82,7 +99,11 @@ public class Oferta {
     }
 
     public void setCostoPersona(Double costoPersona) {
-        this.costoPersona = costoPersona;
+        try{
+            this.costoPersona =   validarCostoPersona(costoPersona);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public Integer getIdLocal() {
