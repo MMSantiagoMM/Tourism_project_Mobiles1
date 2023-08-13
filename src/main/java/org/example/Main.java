@@ -15,7 +15,7 @@ public class Main {
         Local local = new Local();
         Oferta oferta = new Oferta();
         Reserva reserva = new Reserva();
-        /*
+
         System.out.println("Ingrese el nombre del usuario");
         usuario.setNombres(read.nextLine());
         System.out.println(usuario.getNombres());
@@ -53,9 +53,8 @@ public class Main {
         oferta.setCostoPersona(read.nextDouble());
         System.out.println(oferta.getCostoPersona());
 
-        System. System.out.println("Ingrese el costo por persona");
-        oferta.setCostoPersona(read.nextDouble());
-        System.out.println(oferta.getCostoPersona());out.println("Ingrese la fecha de la reserva");
+
+        System.out.println("Ingrese la fecha de la reserva");
         reserva.setFechaReserva(read.next());
         System.out.println(reserva.getFechaReserva());
 
@@ -66,7 +65,7 @@ public class Main {
         System.out.println("Ingrese el costo por persona");
         oferta.setCostoPersona(read.nextDouble());
         System.out.println(oferta.getCostoPersona());
-        */
+
          
     }
 }

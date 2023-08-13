@@ -42,8 +42,7 @@ public class OfertaValidacion {
         if(costo < 0){
             throw new Exception(Mensaje.COSTOPERSONA.getMensaje());
         }
-        Double costoConIVa = costo + costo * 0.19;
-        return costoConIVa;
+        return costo + costo * 0.19;
     }
 
 
