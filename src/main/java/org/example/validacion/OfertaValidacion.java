@@ -38,11 +38,11 @@ public class OfertaValidacion {
         return true;
     }
 
-    public static Double validarCostoPersona (Double costo) throws Exception{
-        if(costo < 0){
+    public static Boolean validarCostoPersona (Double costo) throws Exception{
+        if(costo <= 0){
             throw new Exception(Mensaje.COSTOPERSONA.getMensaje());
         }
-        return costo + costo * 0.19;
+        return true;
     }
 
 

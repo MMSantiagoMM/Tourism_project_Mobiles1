@@ -80,7 +80,7 @@ public class Usuario {
 
     public void setUbicacion(String ubicacion) {
         try{
-            this.ubicacion = validrUbicacion(ubicacion);
+            this.ubicacion = validarUbicacion(ubicacion);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

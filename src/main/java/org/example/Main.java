@@ -15,7 +15,7 @@ public class Main {
         Local local = new Local();
         Oferta oferta = new Oferta();
         Reserva reserva = new Reserva();
-
+        /*
         System.out.println("Ingrese el nombre del usuario");
         usuario.setNombres(read.nextLine());
         System.out.println(usuario.getNombres());
@@ -66,6 +66,6 @@ public class Main {
         oferta.setCostoPersona(read.nextDouble());
         System.out.println(oferta.getCostoPersona());
 
-         
+         */
     }
 }

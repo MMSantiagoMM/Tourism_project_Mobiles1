@@ -100,7 +100,8 @@ public class Oferta {
 
     public void setCostoPersona(Double costoPersona) {
         try{
-            this.costoPersona =   validarCostoPersona(costoPersona);
+            validarCostoPersona(costoPersona);
+            this.costoPersona = costoPersona ;
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

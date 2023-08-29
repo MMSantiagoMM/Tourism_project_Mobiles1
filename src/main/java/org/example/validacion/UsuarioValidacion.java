@@ -15,15 +15,15 @@ public class UsuarioValidacion {
         return true;
     }
 
-    public static Integer validrUbicacion(String ubicacion)throws Exception{
-
-        if(Integer.valueOf(ubicacion) < 1 || Integer.valueOf(ubicacion) > 4){
-            throw new Exception(Mensaje.NUMEROSVALIDOS.getMensaje());
-        }
+    public static Integer validarUbicacion(String ubicacion)throws Exception{
         if(!regExp(ubicacion,"^[0-9]+$")){
             throw new Exception(Mensaje.CARACTERESNUMERO.getMensaje());
         }
-        return Integer.valueOf(ubicacion);
+        if(Integer.parseInt(ubicacion) < 1 || Integer.parseInt(ubicacion) > 4){
+            throw new Exception(Mensaje.NUMEROSVALIDOS.getMensaje());
+        }
+
+        return Integer.parseInt(ubicacion);
     }
 
     public static Boolean validarCorreo(String correo)throws Exception{

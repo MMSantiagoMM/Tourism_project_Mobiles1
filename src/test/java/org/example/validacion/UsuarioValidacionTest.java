@@ -1,26 +1,85 @@
 package org.example.validacion;
 
+import org.example.utilidades.Mensaje;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.example.validacion.UsuarioValidacion.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UsuarioValidacionTest {
 
-    //Preparando pruebaas
+
 
     UsuarioValidacion usuarioValidacion;
 
 
     @BeforeEach
-    public void configurarPruebs (){
+    void configurarPruebasUsuario (){
         System.out.println("Estoy ejecutando la pruba");
         this.usuarioValidacion = new UsuarioValidacion();
     }
+
     @Test
-    public void validarNombrePorFallaNombreCorto(){}
+    void validarNombrePorFallaNombreCorto() {
+
+        Exception respuesta = assertThrows(Exception.class,()-> validarNombre("Santiago"));
+
+        assertEquals(Mensaje.CANTIDADLETRAS.getMensaje(),respuesta.getMessage());
+    }
     @Test
-    public void validarNombrePorFallaPorNumerosEnNombre(){}
+    void validarNombrePorFallaPorNumerosEnNombre(){
+        Exception respuesta = assertThrows(Exception.class,()-> validarNombre("Santiago1234"));
+
+        assertEquals(Mensaje.CARACTERESNOMBRE.getMensaje(),respuesta.getMessage());
+    }
     @Test
-    public void validarNombreCorrecto(){}
+    void validarNombreCorrecto(){
+        Boolean respuesta = assertDoesNotThrow(()->validarNombre("Santiago Mosquera"));
+
+        assertTrue(respuesta);
+    }
+
+    @Test
+    void validarCorreoCorrecto(){
+        Boolean respuesta = assertDoesNotThrow(()->validarCorreo("santiagomosquera@gmail.com"));
+
+        assertTrue(respuesta);
+    }
+
+    @Test
+    void validarCorreoIncorrecto(){
+        Exception respuesta = assertThrows(Exception.class,()->validarCorreo("santiago@.c"));
+
+        assertEquals(Mensaje.CARACTERESCORREO.getMensaje(),respuesta.getMessage());
+    }
+
+    @Test
+    void validarUbicacionIncorrectaMenorUno(){
+        Exception respuesta = assertThrows(Exception.class,()->validarUbicacion("0"));
+
+        assertEquals(Mensaje.NUMEROSVALIDOS.getMensaje(),respuesta.getMessage());
+    }
+
+    @Test
+    void validarUbicacionIncorrectaMayor4(){
+        Exception respuesta = assertThrows(Exception.class,()->validarUbicacion("5"));
+
+        assertEquals(Mensaje.NUMEROSVALIDOS.getMensaje(),respuesta.getMessage());
+    }
+
+    @Test
+    void validarUbicacionConletrasYCaracteresEspeciales(){
+        Exception respuesta = assertThrows(Exception.class,()->validarUbicacion("G"));
+
+        assertEquals(Mensaje.CARACTERESNUMERO.getMensaje(),respuesta.getMessage());
+    }
+
+    @Test
+    void validarUbicacionValida(){
+        Integer respuesta = assertDoesNotThrow(()->validarUbicacion("3"));
+
+        assertEquals(3,3);
+    }
+
 }
