@@ -1,7 +1,5 @@
 package org.example.modelos;
 
-import static org.example.validacion.LocalValidacion.*;
-
 public class Local {
     private Integer id;
     private String nit;
@@ -20,17 +18,6 @@ public class Local {
         this.descripcion = descripcion;
     }
 
-    @Override
-    public String toString() {
-        return "Local{" +
-                "id=" + id +
-                ", nit='" + nit + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", ubicacion=" + ubicacion +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
-    }
-
     public Integer getId() {
         return id;
     }
@@ -44,12 +31,7 @@ public class Local {
     }
 
     public void setNit(String nit) {
-        try{
-            validarNit(nit);
-            this.nit = nit;
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+        this.nit = nit;
     }
 
     public String getNombre() {
@@ -57,12 +39,7 @@ public class Local {
     }
 
     public void setNombre(String nombre) {
-       try{
-           validarNombre(nombre);
-           this.nombre = nombre;
-       }catch (Exception e){
-           System.out.println(e.getMessage());
-       }
+        this.nombre = nombre;
     }
 
     public Integer getUbicacion() {
@@ -79,5 +56,16 @@ public class Local {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    @Override
+    public String toString() {
+        return "Local{" +
+                "id=" + id +
+                ", nit='" + nit + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", ubicacion=" + ubicacion +
+                ", descripcion='" + descripcion + '\'' +
+                '}';
     }
 }

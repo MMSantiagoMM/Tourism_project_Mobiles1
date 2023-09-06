@@ -1,7 +1,5 @@
 package org.example.modelos;
 
-import static org.example.validacion.OfertaValidacion.*;
-
 import java.time.LocalDate;
 
 public class Oferta {
@@ -26,19 +24,6 @@ public class Oferta {
         this.idLocal = idLocal;
     }
 
-    @Override
-    public String toString() {
-        return "Oferta{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", fechaInicio=" + fechaInicio +
-                ", fechaFin=" + fechaFin +
-                ", costoPersona=" + costoPersona +
-                ", idLocal=" + idLocal +
-                '}';
-    }
-
     public Integer getId() {
         return id;
     }
@@ -52,12 +37,7 @@ public class Oferta {
     }
 
     public void setTitulo(String titulo) {
-        try{
-            validarTitulo(titulo);
-            this.titulo = titulo;
-        }catch(Exception e ){
-            System.out.println(e.getMessage());
-        }
+        this.titulo = titulo;
     }
 
     public String getDescripcion() {
@@ -72,26 +52,16 @@ public class Oferta {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
-        try{
-            this.fechaInicio = validarFecha(fechaInicio);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(String fechaFin) {
-        try{
-            LocalDate nuevaFecha = validarFecha(fechaFin);
-            validarFechaFinValida(this.fechaInicio,nuevaFecha);
-            this.fechaFin = nuevaFecha;
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public Double getCostoPersona() {
@@ -99,12 +69,7 @@ public class Oferta {
     }
 
     public void setCostoPersona(Double costoPersona) {
-        try{
-            validarCostoPersona(costoPersona);
-            this.costoPersona = costoPersona ;
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+        this.costoPersona = costoPersona;
     }
 
     public Integer getIdLocal() {
@@ -113,5 +78,18 @@ public class Oferta {
 
     public void setIdLocal(Integer idLocal) {
         this.idLocal = idLocal;
+    }
+
+    @Override
+    public String toString() {
+        return "Oferta{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", fechaInicio=" + fechaInicio +
+                ", fechaFin=" + fechaFin +
+                ", costoPersona=" + costoPersona +
+                ", idLocal=" + idLocal +
+                '}';
     }
 }

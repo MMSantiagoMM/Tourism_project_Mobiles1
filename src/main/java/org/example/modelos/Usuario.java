@@ -1,35 +1,21 @@
 package org.example.modelos;
 
-
-import static org.example.validacion.UsuarioValidacion.*;
-
 public class Usuario {
     private Integer id;
     private String documento;
     private String nombres;
     private String correo;
-    private Integer ubicacion;
+    private String ubicacion;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String documento, String nombres , String correo, Integer ubicacion) {
+    public Usuario(Integer id, String documento, String nombres, String correo, String ubicacion) {
         this.id = id;
         this.documento = documento;
-        this.nombres = nombres ;
+        this.nombres = nombres;
         this.correo = correo;
         this.ubicacion = ubicacion;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", documento='" + documento + '\'' +
-                ", nombres ='" + nombres + '\'' +
-                ", correo='" + correo + '\'' +
-                ", ubicacion=" + ubicacion +
-                '}';
     }
 
     public Integer getId() {
@@ -48,17 +34,12 @@ public class Usuario {
         this.documento = documento;
     }
 
-    public String getNombres () {
-        return nombres ;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombres (String nombres ) {
-        try{
-            validarNombre(nombres);
-            this.nombres = nombres;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getCorreo() {
@@ -66,23 +47,25 @@ public class Usuario {
     }
 
     public void setCorreo(String correo) {
-        try{
-            validarCorreo(correo);
-            this.correo = correo;
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+        this.correo = correo;
     }
 
-    public Integer getUbicacion() {
+    public String getUbicacion() {
         return ubicacion;
     }
 
     public void setUbicacion(String ubicacion) {
-        try{
-            this.ubicacion = validarUbicacion(ubicacion);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+        this.ubicacion = ubicacion;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", documento='" + documento + '\'' +
+                ", nombres='" + nombres + '\'' +
+                ", correo='" + correo + '\'' +
+                ", ubicacion=" + ubicacion +
+                '}';
     }
 }
