@@ -4,16 +4,16 @@ import org.example.utilidades.Mensaje;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.example.validacion.LocalValidacion.*;
+import static org.example.validacion.EmpresaValidacion.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class LocalValidacionTest {
+class EmpresaValidacionTest {
 
-    LocalValidacion localValidacion = new LocalValidacion();
+    EmpresaValidacion empresaValidacion = new EmpresaValidacion();
 
     @BeforeEach
     void configurarPruebaLocal(){
-        this.localValidacion = new LocalValidacion();
+        this.empresaValidacion = new EmpresaValidacion();
     }
 
     @Test

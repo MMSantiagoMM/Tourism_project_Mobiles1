@@ -85,4 +85,8 @@ public class Usuario {
             System.out.println(e.getMessage());
         }
     }
+
+    public void registrar(){
+
+    }
 }

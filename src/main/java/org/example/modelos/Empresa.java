@@ -1,18 +1,18 @@
 package org.example.modelos;
 
-import static org.example.validacion.LocalValidacion.*;
+import static org.example.validacion.EmpresaValidacion.*;
 
-public class Local {
+public abstract class Empresa {
     private Integer id;
     private String nit;
     private String nombre;
     private Integer ubicacion;
     private String descripcion;
 
-    public Local() {
+    public Empresa() {
     }
 
-    public Local(Integer id, String nit, String nombre, Integer ubicacion, String descripcion) {
+    public Empresa(Integer id, String nit, String nombre, Integer ubicacion, String descripcion) {
         this.id = id;
         this.nit = nit;
         this.nombre = nombre;
@@ -22,7 +22,7 @@ public class Local {
 
     @Override
     public String toString() {
-        return "Local{" +
+        return "Empresa{" +
                 "id=" + id +
                 ", nit='" + nit + '\'' +
                 ", nombre='" + nombre + '\'' +
@@ -80,4 +80,7 @@ public class Local {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public abstract Double calcularCobro(Double costo);
+
 }

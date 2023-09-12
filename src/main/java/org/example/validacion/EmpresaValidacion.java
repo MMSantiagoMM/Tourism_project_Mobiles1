@@ -5,7 +5,7 @@ import static org.example.utilidades.Caracteres.*;
 import static org.example.utilidades.ExpresionesRegulares.*;
 import org.example.utilidades.Mensaje;
 
-public class LocalValidacion {
+public class EmpresaValidacion {
 
     public static Boolean validarNit(String nit)throws Exception{
         if(nit.length() != 10){

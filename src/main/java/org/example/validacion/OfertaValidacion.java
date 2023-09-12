@@ -4,7 +4,6 @@ import static org.example.utilidades.ExpresionesRegulares.*;
 
 import static org.example.utilidades.Fecha.*;
 
-import org.example.modelos.Local;
 import org.example.utilidades.Mensaje;
 
 import java.time.LocalDate;

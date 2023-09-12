@@ -10,7 +10,10 @@ public enum Mensaje {
     FORMATOFECHA("Ingrese un formato de fecha válido"),
     FECHAFINALVALIDA("La fecha del final del evento no puede ser menor a la fecha de inicio"),
     COSTOPERSONA("El costo por persona no puede ser negaivo"),
-    CANPERRESERVA("El numero de personas por reserva no puede ser mayor a 4 o menor que 0");
+    CANPERRESERVA("El numero de personas por reserva no puede ser mayor a 4 o menor que 0"),
+    TOPENEGATIVO("El valor no puede ser negativo"),
+    TOPEPOSITIVO("El valor del pago no puede superar los 100.000 pesos"),
+    COSTOSUPERIOREMPRESAS("El costo no puede superar los 220.000 pesos");
     public String mensaje;
 
     Mensaje(String mensaje) {
