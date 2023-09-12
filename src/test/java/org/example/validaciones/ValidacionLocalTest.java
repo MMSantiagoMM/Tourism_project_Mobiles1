@@ -30,7 +30,13 @@ class ValidacionLocalTest {
     @Test
     void validar_nombre_mas_de_treinta_caracteres(){
         Exception exception = assertThrows(Exception.class,()->ValidacionLocal.validarNombre("poedwpokeopdkewopkdewopdkopewkdpwekdopw"));
-        assertEquals(NOMBREEMPRESA.getMensaje(),exception.getMessage());
+        assertEquals(MAXIMOCARAC.getMensaje(),exception.getMessage());
+    }
+
+    @Test
+    void validar_nombre_valido(){
+        Boolean response = assertDoesNotThrow(()->ValidacionLocal.validarNombre("Este es un nombre valido"));
+        assertTrue(response);
     }
 
 

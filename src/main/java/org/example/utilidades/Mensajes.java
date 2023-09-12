@@ -7,7 +7,10 @@ public enum Mensajes {
     RANGONUMEROS("Los numeros válidos están en el rango 1 - 4"),
     CORREOVALIDO("El correo electrónico debe ser un correo válido"),
     CAMPONIT("El campo nit solo debe contener diez digitos"),
-    NOMBREEMPRESA("El nombre de la empresar no puede sobrepasar los treinta caracteres")
+    MAXIMOCARAC("Este campo excedió los carácteres requeridos"),
+    FECHAINICIO("La fecha de inicio no puede ser mayor que la fecha de fin"),
+    FORMATOFECHA("El formato de fecha no es el indicado"),
+    COSTOPERSONA("El costo por persona no puede ser negativo")
     ;
 
     public String mensaje;

@@ -1,6 +1,5 @@
 package org.example.validaciones;
 
-import org.example.utilidades.CantidadLetras;
 import static org.example.utilidades.CantidadLetras.*;
 
 import static org.example.utilidades.Mensajes.*;
@@ -17,7 +16,7 @@ public class ValidacionLocal {
 
     public static Boolean validarNombre(String nombre) throws Exception{
         if(!comprobarMaximoLetras(nombre,30)){
-            throw new Exception(NOMBREEMPRESA.getMensaje());
+            throw new Exception(MAXIMOCARAC.getMensaje());
         }
         return true;
     }
