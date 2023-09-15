@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OfertaValidacionTest {
 
-    OfertaValidacion ofertaValidacion = new OfertaValidacion();
+    OfertaValidacion ofertaValidacion;
 
     @BeforeEach
     void configurarPruebaOferta(){

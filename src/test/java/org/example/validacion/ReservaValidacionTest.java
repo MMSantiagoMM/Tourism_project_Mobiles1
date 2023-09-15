@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReservaValidacionTest {
 
-    ReservaValidacion reservaValidacion = new ReservaValidacion();
+    ReservaValidacion reservaValidacion;
 
     @BeforeEach
     void configurarPruebaReserva(){

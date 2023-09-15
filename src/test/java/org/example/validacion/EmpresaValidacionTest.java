@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EmpresaValidacionTest {
 
-    EmpresaValidacion empresaValidacion = new EmpresaValidacion();
+    EmpresaValidacion empresaValidacion;
 
     @BeforeEach
     void configurarPruebaLocal(){
