@@ -1,12 +1,22 @@
 package org.example.modelos;
 
-public class EmpresaCultural extends Empresa{
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import org.example.modelos.interfaces.IReporte;
+
+public class EmpresaCultural extends Empresa implements IReporte {
+
+
+
+
 
     private String entidad;
     private String mision;
     /*
     private String emailContacto;
     private String numeroContacto;*/
+
+
 
     public EmpresaCultural() {
     }
@@ -22,4 +32,23 @@ public class EmpresaCultural extends Empresa{
         this.mision = mision;
     }
 
+    @Override
+    public void generarReporte(String datos) {
+
+    }
+
+    @Override
+    public void buscarReporte(Integer id) {
+
+    }
+
+    @Override
+    public void editarReporte(Integer id) {
+
+    }
+
+    @Override
+    public void eliminarReporte(Integer identidicacion) {
+        IReporte.super.eliminarReporte(identidicacion);
+    }
 }
