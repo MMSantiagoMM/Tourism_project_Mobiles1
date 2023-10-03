@@ -1,8 +1,6 @@
-package org.example.modelos;
+package org.example.entidades;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import org.example.modelos.interfaces.IReporte;
+import org.example.entidades.interfaces.IReporte;
 
 public class EmpresaCultural extends Empresa implements IReporte {
 

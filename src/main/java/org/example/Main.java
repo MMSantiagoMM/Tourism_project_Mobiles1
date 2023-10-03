@@ -3,11 +3,7 @@ package org.example;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import org.example.modelos.*;
-
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {

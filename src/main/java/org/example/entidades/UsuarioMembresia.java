@@ -1,18 +1,22 @@
-package org.example.modelos;
+package org.example.entidades;
 
-import org.example.modelos.interfaces.IAnalitica;
-import org.example.modelos.interfaces.IReporte;
+import org.example.entidades.interfaces.IAnalitica;
+import org.example.entidades.interfaces.IReporte;
 
 public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<UsuarioMembresia> {
 
     private Double costoMensual;
 
+    private Integer cedulaInvitado;
+
+
     public UsuarioMembresia() {
     }
 
-    public UsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoMensual) {
+    public UsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoMensual, Integer cedulaInvitado) {
         super(id, documento, nombres, correo, ubicacion);
         this.costoMensual = costoMensual;
+        this.cedulaInvitado = cedulaInvitado;
     }
 
     public Double getCostoMensual() {
@@ -23,7 +27,15 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
         this.costoMensual = costoMensual;
     }
 
-    public void agregarInvitado(String id){}
+    public Integer getCedulaInvitado() {
+        return cedulaInvitado;
+    }
+
+    public void setCedulaInvitado(Integer cedulaInvitado) {
+        this.cedulaInvitado = cedulaInvitado;
+    }
+
+    public void agregarInvitado(Integer cedulaInvitado){}
 
     @Override
     public void generarReporte(String datos) {

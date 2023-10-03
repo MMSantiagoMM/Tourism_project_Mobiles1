@@ -1,39 +1,42 @@
-package org.example.modelos;
+package org.example.modeloDatos;
 
-import static org.example.validacion.ReservaValidacion.*;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-public class Reserva {
+@Entity
+public class ModeloReserva {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Integer id;
+
+    @Column(name = "id_usuario",nullable = false)
     private Integer idUsuario;
+
+    @Column(name = "id_oferta",nullable = false)
     private Integer idOferta;
+
+    @Column(name = "costo_total",nullable = false)
     private Double costoTotal;
+
+    @Column(name = "fecha_reserva",nullable = false)
     private LocalDate fechaReserva;
+
+    @Column(name = "cantidad_personas",nullable = false)
     private Integer cantidadPersonas;
 
-    public Reserva() {
+    public ModeloReserva() {
     }
 
-    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva,Integer cantidadPersonas) {
+    public ModeloReserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva, Integer cantidadPersonas) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idOferta = idOferta;
         this.costoTotal = costoTotal;
         this.fechaReserva = fechaReserva;
         this.cantidadPersonas = cantidadPersonas;
-    }
-
-    @Override
-    public String toString() {
-        return "Reserva{" +
-                "id=" + id +
-                ", idUsuario=" + idUsuario +
-                ", idOferta=" + idOferta +
-                ", costoTotal=" + costoTotal +
-                ", fechaReserva=" + fechaReserva +
-                ", cantidadPersonas=" + cantidadPersonas +
-                '}';
     }
 
     public Integer getId() {
@@ -72,12 +75,8 @@ public class Reserva {
         return fechaReserva;
     }
 
-    public void setFechaReserva(String fechaReserva) {
-        try{
-            LocalDate nuevaFecha = validarFecha(fechaReserva);
-            this.fechaReserva = nuevaFecha;
-        } catch (Exception e){
-            System.out.println(e.getMessage());}
+    public void setFechaReserva(LocalDate fechaReserva) {
+        this.fechaReserva = fechaReserva;
     }
 
     public Integer getCantidadPersonas() {
@@ -85,11 +84,6 @@ public class Reserva {
     }
 
     public void setCantidadPersonas(Integer cantidadPersonas) {
-        try{
-            validarCantidadPersonas(cantidadPersonas);
-            this.cantidadPersonas = cantidadPersonas;
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+        this.cantidadPersonas = cantidadPersonas;
     }
 }

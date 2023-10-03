@@ -1,15 +1,23 @@
-package org.example.modelos;
+package org.example.modeloDatos;
 
-public class EmpresaPrivada extends Empresa {
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+@Entity
+public class ModeloEmpresaPrivada extends ModeloEmpresa{
+
+    @Column(name = "representante_legal",nullable = false)
     private String representanteLegal;
+
+    @Column(name = "cedula",nullable = false)
     private String cedula;
 
 
-    public EmpresaPrivada() {
+    public ModeloEmpresaPrivada() {
     }
 
-    public EmpresaPrivada(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String representanteLegal, String cedula) {
+    public ModeloEmpresaPrivada(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String representanteLegal, String cedula) {
         super(id, nit, nombre, ubicacion, descripcion);
         this.representanteLegal = representanteLegal;
         this.cedula = cedula;
@@ -30,12 +38,4 @@ public class EmpresaPrivada extends Empresa {
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
-
-    @Override
-    public Double calcularCobro(Double costo){
-        return costo + (costo * 0.19);
-    }
-
-
-
 }
