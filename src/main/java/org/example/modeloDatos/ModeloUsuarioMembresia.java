@@ -11,16 +11,16 @@ public class ModeloUsuarioMembresia extends ModeloUsuario {
     private Double costoMensual;
 
 
-    @Column(name = "cedulaInvitado",nullable = false)
-    private Integer cedulaInvitado;
+    @Column(name = "idInvitado",nullable = false)
+    private Integer idInvitado;
 
     public ModeloUsuarioMembresia() {
     }
 
-    public ModeloUsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoMensual, Integer cedulaInvitado) {
+    public ModeloUsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoMensual, Integer idInvitado) {
         super(id, documento, nombres, correo, ubicacion);
         this.costoMensual = costoMensual;
-        this.cedulaInvitado = cedulaInvitado;
+        this.idInvitado = idInvitado;
     }
 
     public Double getCostoMensual() {
@@ -31,11 +31,11 @@ public class ModeloUsuarioMembresia extends ModeloUsuario {
         this.costoMensual = costoMensual;
     }
 
-    public Integer getCedulaInvitado() {
-        return cedulaInvitado;
+    public Integer getIdInvitado() {
+        return idInvitado;
     }
 
-    public void setCedulaInvitado(Integer cedulaInvitado) {
-        this.cedulaInvitado = cedulaInvitado;
+    public void setIdInvitado(Integer cedulaInvitado) {
+        this.idInvitado = idInvitado;
     }
 }

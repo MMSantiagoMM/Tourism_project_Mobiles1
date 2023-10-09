@@ -1,6 +1,12 @@
 package org.example.validacion;
 
 
+import org.example.utilidades.Mensaje;
+
+import java.time.LocalDate;
+
+import static org.example.utilidades.ExpresionesRegulares.regExp;
+import static org.example.utilidades.Fecha.formatearFecha;
 import static org.example.utilidades.Mensaje.*;
 
 public class UsuarioMembresiaValidacion {

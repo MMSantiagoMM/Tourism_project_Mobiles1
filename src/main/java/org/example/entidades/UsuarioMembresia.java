@@ -3,20 +3,23 @@ package org.example.entidades;
 import org.example.entidades.interfaces.IAnalitica;
 import org.example.entidades.interfaces.IReporte;
 
+import java.time.LocalDate;
+
 public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<UsuarioMembresia> {
 
     private Double costoMensual;
+    private Integer idInvitado;
 
-    private Integer cedulaInvitado;
+
 
 
     public UsuarioMembresia() {
     }
 
-    public UsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoMensual, Integer cedulaInvitado) {
+    public UsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoMensual,Integer idInvitado) {
         super(id, documento, nombres, correo, ubicacion);
         this.costoMensual = costoMensual;
-        this.cedulaInvitado = cedulaInvitado;
+        this.idInvitado = idInvitado;
     }
 
     public Double getCostoMensual() {
@@ -27,15 +30,13 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
         this.costoMensual = costoMensual;
     }
 
-    public Integer getCedulaInvitado() {
-        return cedulaInvitado;
+    public Integer getIdInvitado() {
+        return idInvitado;
     }
 
-    public void setCedulaInvitado(Integer cedulaInvitado) {
-        this.cedulaInvitado = cedulaInvitado;
+    public void setIdInvitado(Integer idInvitado) {
+        this.idInvitado = idInvitado;
     }
-
-    public void agregarInvitado(Integer cedulaInvitado){}
 
     @Override
     public void generarReporte(String datos) {
@@ -61,4 +62,17 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
     public void calcularDispersion(UsuarioMembresia datos) {
 
     }
+
+    public UsuarioInvitado agregarReferido(String cedula){
+        UsuarioInvitado usuarioInvitado = new UsuarioInvitado();
+        usuarioInvitado.setCedula(cedula);
+        LocalDate fechaActual = LocalDate.now();
+        LocalDate fechaFinal = fechaActual.plusDays(5);
+        usuarioInvitado.setFechaInvitacion(fechaActual);
+        usuarioInvitado.setFechaFinalizacion(fechaFinal);
+        return usuarioInvitado;
+    }
+
+
+
 }

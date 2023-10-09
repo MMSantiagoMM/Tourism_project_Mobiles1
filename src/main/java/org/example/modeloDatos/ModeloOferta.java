@@ -30,6 +30,6 @@ public class ModeloOferta {
     @Column(name = "costo_persona",nullable = false)
     private Double costoPersona;
 
-    @Column(name = "id_local",nullable = false)
-    private Integer idLocal;
+    @Column(name = "id_empresa",nullable = false)
+    private Integer idEmpresa;
 }
