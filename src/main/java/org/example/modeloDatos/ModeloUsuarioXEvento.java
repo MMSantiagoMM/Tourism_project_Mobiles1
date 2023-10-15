@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 public class ModeloUsuarioXEvento extends ModeloUsuario{
 
 
-    @Column(name = "costoEvento",nullable = false)
+    @Column(name = "costo_evento")
     private Double costoPorEvento;
 
     public ModeloUsuarioXEvento() {

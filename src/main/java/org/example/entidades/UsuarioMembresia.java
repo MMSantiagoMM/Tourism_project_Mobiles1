@@ -9,6 +9,7 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
 
     private Double costoMensual;
     private Integer idInvitado;
+    private Usuario usuario;
 
 
 
@@ -16,10 +17,13 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
     public UsuarioMembresia() {
     }
 
-    public UsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoMensual,Integer idInvitado) {
+    public UsuarioMembresia(Integer id, String documento, String nombres,
+                            String correo, Integer ubicacion, Double costoMensual,
+                            Integer idInvitado, Usuario usuario) {
         super(id, documento, nombres, correo, ubicacion);
         this.costoMensual = costoMensual;
         this.idInvitado = idInvitado;
+        this.usuario = usuario;
     }
 
     public Double getCostoMensual() {
@@ -36,6 +40,14 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
 
     public void setIdInvitado(Integer idInvitado) {
         this.idInvitado = idInvitado;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

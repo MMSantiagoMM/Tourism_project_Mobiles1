@@ -17,10 +17,10 @@ public class ModeloUsuario {
     @Column(name = "nombre", nullable = false)
     private String nombres;
 
-    @Column(name = "correo",nullable = false)
+    @Column(name = "correo")
     private String correo;
 
-    @Column(name = "ubicacion",nullable = false)
+    @Column(name = "ubicacion")
     private Integer ubicacion;
 
 

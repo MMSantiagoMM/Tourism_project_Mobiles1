@@ -12,8 +12,8 @@
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/testTurism"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="ne3passw0rd"/>
+            <property name="javax.persistence.jdbc.user" value="black-programmer"/>
+            <property name="javax.persistence.jdbc.password" value="N3wPassw0rd*"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>

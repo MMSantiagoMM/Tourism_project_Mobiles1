@@ -10,7 +10,7 @@ public class ModeloEmpresaPrivada extends ModeloEmpresa{
     @Column(name = "representante_legal",nullable = false)
     private String representanteLegal;
 
-    @Column(name = "cedula",nullable = false)
+    @Column(name = "cedula")
     private String cedula;
 
 

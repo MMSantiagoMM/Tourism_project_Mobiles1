@@ -12,7 +12,8 @@ public class UsuarioInvitado {
     public UsuarioInvitado() {
     }
 
-    public UsuarioInvitado(Integer id,String cedula, LocalDate fechaInvitacion,LocalDate fechaFinalizacion) {
+    public UsuarioInvitado(Integer id,String cedula, LocalDate fechaInvitacion,
+                           LocalDate fechaFinalizacion) {
         this.id = id;
         this.cedula = cedula;
         this.fechaInvitacion = fechaInvitacion;
