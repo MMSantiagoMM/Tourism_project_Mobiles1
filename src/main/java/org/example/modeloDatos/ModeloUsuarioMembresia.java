@@ -1,12 +1,18 @@
 package org.example.modeloDatos;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-public class ModeloUsuarioMembresia extends ModeloUsuario {
+public class ModeloUsuarioMembresia {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "costoMensual")
     private Double costoMensual;
@@ -16,15 +22,26 @@ public class ModeloUsuarioMembresia extends ModeloUsuario {
     private Integer idInvitado;
 
 
+    /*
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_usuario")
+    private ModeloUsuario modeloUsuario;
+
+*/
+    @OneToOne
+    @MapsId
+    private ModeloUsuario modeloUsuario;
+
+
 
     public ModeloUsuarioMembresia() {
     }
 
-    public ModeloUsuarioMembresia(Integer id, String documento, String nombres, String correo,
-                                  String ubicacion, Double costoMensual, Integer idInvitado) {
-        super(id, documento, nombres, correo, Integer.valueOf(ubicacion));
+    public ModeloUsuarioMembresia(Double costoMensual, Integer idInvitado, ModeloUsuario modeloUsuario) {
+
         this.costoMensual = costoMensual;
         this.idInvitado = idInvitado;
+        this.modeloUsuario = modeloUsuario;
 
     }
 
@@ -40,8 +57,26 @@ public class ModeloUsuarioMembresia extends ModeloUsuario {
         return idInvitado;
     }
 
-    public void setIdInvitado(Integer cedulaInvitado) {
+    public void setIdInvitado(Integer idInvitado) {
         this.idInvitado = idInvitado;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public ModeloUsuario getModeloUsuario() {
+        return modeloUsuario;
+    }
+
+    public void setModeloUsuario(ModeloUsuario modeloUsuario) {
+        this.modeloUsuario = modeloUsuario;
+    }
+
+    public void setModeloUsuario(Integer id) {
+    }
 }

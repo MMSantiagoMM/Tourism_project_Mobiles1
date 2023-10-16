@@ -4,18 +4,19 @@ import jakarta.persistence.*;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class ModeloUsuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "id_usuario")
     private Integer id;
 
-    @Column(name = "documento", nullable = false)
-    private String documento;
-
     @Column(name = "nombre", nullable = false)
     private String nombres;
+
+    @Column(name = "documento", nullable = false)
+    private String documento;
 
     @Column(name = "correo")
     private String correo;
@@ -24,15 +25,22 @@ public class ModeloUsuario {
     private Integer ubicacion;
 
 
+
+
+
     public ModeloUsuario() {
     }
 
-    public ModeloUsuario(Integer id, String documento, String nombres, String correo, Integer ubicacion) {
+    public ModeloUsuario(String documento, String nombres, String correo, Integer ubicacion) {
         this.id = id;
         this.documento = documento;
         this.nombres = nombres;
         this.correo = correo;
         this.ubicacion = ubicacion;
+    }
+
+    public ModeloUsuario(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {

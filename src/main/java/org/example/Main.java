@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import org.example.controladores.ControladorUsuario;
 import org.example.entidades.UsuarioInvitado;
 import org.example.entidades.UsuarioMembresia;
+import org.example.modeloDatos.ModeloUsuario;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -46,11 +47,15 @@ public class Main {
 
         ControladorUsuario controladorUsuario = new ControladorUsuario();
 
-        controladorUsuario.registrarUsuario("Santiago Mosquera","12345","santiago@gmail.com",
-                "4",123.000,1,null);
+        controladorUsuario.agregarUsuario("SantiagoMapura","12345",
+                "santiago@gmail.com","3",120.000,6);
 
 
+        controladorUsuario.agregarUsuario("Camila Orozco","678910",
+                "cami@gmail.com","1",110.000,3);
 
+        controladorUsuario.agregarUsuario("Diomedez Diaz","6666",
+                "dio@gmail.com","2",100.000,12);
 
 
 

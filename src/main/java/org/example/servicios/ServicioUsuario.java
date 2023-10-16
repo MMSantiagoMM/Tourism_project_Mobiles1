@@ -8,34 +8,26 @@ import org.example.modeloDatos.ModeloUsuario;
 import org.example.modeloDatos.ModeloUsuarioMembresia;
 
 import java.util.List;
+import java.util.Set;
 
 public class ServicioUsuario {
 
     public void registrarUsuario(UsuarioMembresia usuarioMembresia){
         String configuracionPersistencia = "conexionBD";
 
-        EntityManagerFactory entityManagerFactory = null;
+        try (EntityManagerFactory entityManagerFactory =
+                     Persistence.createEntityManagerFactory(configuracionPersistencia);
+             EntityManager entityManager = entityManagerFactory.createEntityManager()) {
 
-        EntityManager entityManager = null;
+            ModeloUsuarioMembresia modeloUsuarioMembresia = 
+                    getModeloUsuarioMembresia(usuarioMembresia);
 
-        try{
-            entityManagerFactory = Persistence.createEntityManagerFactory(configuracionPersistencia);
-            entityManager = entityManagerFactory.createEntityManager();
-
-            ModeloUsuarioMembresia modeloUsuarioMembresia = new ModeloUsuarioMembresia();
-
-            modeloUsuarioMembresia.setNombres(usuarioMembresia.getNombres());
-            modeloUsuarioMembresia.setDocumento(usuarioMembresia.getDocumento());
-            modeloUsuarioMembresia.setCorreo(usuarioMembresia.getCorreo());
-            modeloUsuarioMembresia.setCostoMensual(usuarioMembresia.getCostoMensual());
-            modeloUsuarioMembresia.setIdInvitado(usuarioMembresia.getIdInvitado());
-            modeloUsuarioMembresia.setUbicacion(usuarioMembresia.getUbicacion());
-            modeloUsuarioMembresia.setIdInvitado(usuarioMembresia.getIdInvitado());
 
             //Inicio de la transacción
             entityManager.getTransaction().begin();
 
             //Activar persistencia
+            //entityManager.persist(modeloUsuario);
             entityManager.persist(modeloUsuarioMembresia);
 
             //Registro de la operacion
@@ -43,18 +35,22 @@ public class ServicioUsuario {
 
             System.out.println("Exito en la transacción. Usuario registrado exitosamente");
 
-        }catch (Exception error){
+        } catch (Exception error) {
             System.out.println("Fallamos " + error.getMessage());
-        }finally {
-            if(entityManager != null){
-                entityManager.close();
-            }
-            if(entityManagerFactory != null){
-                entityManagerFactory.close();
-            }
         }
+    }
 
+    private static ModeloUsuarioMembresia getModeloUsuarioMembresia(UsuarioMembresia usuarioMembresia) {
+        ModeloUsuarioMembresia modeloUsuarioMembresia = new ModeloUsuarioMembresia();
 
+        modeloUsuarioMembresia.setModeloUsuario(new ModeloUsuario(
+                usuarioMembresia.getNombres(), usuarioMembresia.getDocumento(),
+                usuarioMembresia.getCorreo(), usuarioMembresia.getUbicacion()
+        ));
+
+        modeloUsuarioMembresia.setCostoMensual(usuarioMembresia.getCostoMensual());
+        modeloUsuarioMembresia.setIdInvitado(usuarioMembresia.getIdInvitado());
+        return modeloUsuarioMembresia;
     }
 
     public List<ModeloUsuario> buscarUsuario(){

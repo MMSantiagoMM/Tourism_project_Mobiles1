@@ -3,10 +3,16 @@ package org.example.modeloDatos;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
-public class ModeloUsuarioXEvento extends ModeloUsuario{
+public class ModeloUsuarioXEvento{
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "costo_evento")
     private Double costoPorEvento;
@@ -15,7 +21,6 @@ public class ModeloUsuarioXEvento extends ModeloUsuario{
     }
 
     public ModeloUsuarioXEvento(Integer id, String documento, String nombres, String correo, Integer ubicacion, Double costoPorEvento) {
-        super(id, documento, nombres, correo, ubicacion);
         this.costoPorEvento = costoPorEvento;
     }
 
