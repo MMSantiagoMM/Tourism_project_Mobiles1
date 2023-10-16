@@ -19,7 +19,7 @@ public class ServicioUsuario {
                      Persistence.createEntityManagerFactory(configuracionPersistencia);
              EntityManager entityManager = entityManagerFactory.createEntityManager()) {
 
-            ModeloUsuarioMembresia modeloUsuarioMembresia = 
+            ModeloUsuarioMembresia modeloUsuarioMembresia =
                     getModeloUsuarioMembresia(usuarioMembresia);
 
 
