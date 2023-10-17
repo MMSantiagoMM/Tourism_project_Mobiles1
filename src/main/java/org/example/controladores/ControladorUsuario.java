@@ -14,7 +14,7 @@ public class ControladorUsuario {
 
     public void agregarUsuario(String nombre, String documento,
                                  String correo, String ubicacion, Double cosotMensual,
-                                 Integer cedulaInvitado){
+                                 String cedulaInvitado){
         this.usuarioMembresia.setCedulaInvitado(cedulaInvitado);
         this.usuarioMembresia.setNombres(nombre);
         this.usuarioMembresia.setDocumento(documento);

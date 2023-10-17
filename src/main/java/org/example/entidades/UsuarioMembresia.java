@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<UsuarioMembresia> {
 
     private Double costoMensual;
-    private Integer cedulaInvitado;
+    private String cedulaInvitado;
 
 
 
@@ -17,7 +17,7 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
 
     public UsuarioMembresia(Integer id, String documento, String nombres,
                             String correo, Integer ubicacion, Double costoMensual,
-                            Integer cedulaInvitado) {
+                            String cedulaInvitado) {
         super(id, documento, nombres, correo, ubicacion);
         this.costoMensual = costoMensual;
         this.cedulaInvitado = cedulaInvitado;
@@ -31,11 +31,11 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
         this.costoMensual = costoMensual;
     }
 
-    public Integer getCedulaInvitado() {
+    public String getCedulaInvitado() {
         return cedulaInvitado;
     }
 
-    public void setCedulaInvitado(Integer cedulaInvitado) {
+    public void setCedulaInvitado(String cedulaInvitado) {
         this.cedulaInvitado = cedulaInvitado;
     }
 
@@ -65,16 +65,6 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
     @Override
     public void calcularDispersion(UsuarioMembresia datos) {
 
-    }
-
-    public UsuarioInvitado agregarReferido(String cedula){
-        UsuarioInvitado usuarioInvitado = new UsuarioInvitado();
-        usuarioInvitado.setCedula(cedula);
-        LocalDate fechaActual = LocalDate.now();
-        LocalDate fechaFinal = fechaActual.plusDays(5);
-        usuarioInvitado.setFechaInvitacion(fechaActual);
-        usuarioInvitado.setFechaFinalizacion(fechaFinal);
-        return usuarioInvitado;
     }
 
 

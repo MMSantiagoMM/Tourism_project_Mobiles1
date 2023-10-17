@@ -10,7 +10,7 @@ public class ModeloUsuarioInvitado {
 
     @Id
     @Column(name = "id_cedula")
-    private Integer cedula;
+    private String cedula;
 
     @Column(name = "fecha_invitacion")
     private LocalDate fechaInvitacion;
@@ -21,18 +21,18 @@ public class ModeloUsuarioInvitado {
     public ModeloUsuarioInvitado() {
     }
 
-    public ModeloUsuarioInvitado(Integer cedula) {
+    public ModeloUsuarioInvitado(String cedula) {
         this.cedula = cedula;
         this.fechaInvitacion = LocalDate.now();
         this.fechaFinalizacion = fechaInvitacion.plusDays(5);
     }
 
 
-    public Integer getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(Integer cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
