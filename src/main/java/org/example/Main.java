@@ -48,8 +48,8 @@ public class Main {
 
         ControladorUsuario controladorUsuario = new ControladorUsuario();
 
-        controladorUsuario.agregarUsuario("Santiago Mapura","6789",
-                "santiago@gmail.com","1",120.000,"1");
+        controladorUsuario.agregarUsuario("Esta es una prueba de esto","6789",
+                "marta@gmail.com","1",120.000,"76");
 
 
        /* controladorUsuario.agregarUsuario("Camila Orozco","678910",

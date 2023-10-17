@@ -22,9 +22,9 @@ public class ModeloUsuarioInvitado {
     }
 
     public ModeloUsuarioInvitado(String cedula) {
-        this.cedula = cedula;
-        this.fechaInvitacion = LocalDate.now();
-        this.fechaFinalizacion = fechaInvitacion.plusDays(5);
+            this.cedula = cedula;
+            this.fechaInvitacion = LocalDate.now();
+            this.fechaFinalizacion = fechaInvitacion.plusDays(5);
     }
 
 
