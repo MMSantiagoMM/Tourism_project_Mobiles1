@@ -1,13 +1,17 @@
 package org.example.modeloDatos;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
-public class ModeloEmpresaPrivada extends ModeloEmpresa{
+public class ModeloEmpresaPrivada{
 
-    @Column(name = "representante_legal",nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "representante_legal")
     private String representanteLegal;
 
     @Column(name = "cedula")
@@ -17,8 +21,7 @@ public class ModeloEmpresaPrivada extends ModeloEmpresa{
     public ModeloEmpresaPrivada() {
     }
 
-    public ModeloEmpresaPrivada(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String representanteLegal, String cedula) {
-        super(id, nit, nombre, ubicacion, descripcion);
+    public ModeloEmpresaPrivada(String representanteLegal, String cedula) {
         this.representanteLegal = representanteLegal;
         this.cedula = cedula;
     }

@@ -1,10 +1,8 @@
 package org.example.controladores;
 
-import org.example.entidades.UsuarioMembresia;
+
 import org.example.entidades.UsuarioPagoXEvento;
-import org.example.modeloDatos.ModeloUsuarioMembresia;
 import org.example.modeloDatos.ModeloUsuarioXEvento;
-import org.example.servicios.ServicioUsuarioMembresia;
 import org.example.servicios.ServicioUsuarioXEvento;
 
 import java.util.List;
@@ -24,7 +22,6 @@ public class ControladorUsuarioXEvento {
         this.usuarioPagoXEvento.setCorreo(correo);
         this.usuarioPagoXEvento.setUbicacion(Integer.valueOf(ubicacion));
         this.usuarioPagoXEvento.setCostoPorEvento(cosotPorEvento);
-
 
         this.servicioUsuarioXEvento.registrarUsuario(usuarioPagoXEvento);
 

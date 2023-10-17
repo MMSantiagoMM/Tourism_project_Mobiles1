@@ -3,11 +3,8 @@ package org.example.servicios;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.entidades.UsuarioMembresia;
 import org.example.entidades.UsuarioPagoXEvento;
 import org.example.modeloDatos.ModeloUsuario;
-import org.example.modeloDatos.ModeloUsuarioInvitado;
-import org.example.modeloDatos.ModeloUsuarioMembresia;
 import org.example.modeloDatos.ModeloUsuarioXEvento;
 
 import java.util.List;
@@ -25,7 +22,7 @@ public class ServicioUsuarioXEvento {
                     getModeloUsuarioMembresia(usuarioPagoXEvento);
 
             entityManager.getTransaction().begin();
-            
+
             entityManager.persist(modeloUsuarioMembresia);
 
             entityManager.getTransaction().commit();

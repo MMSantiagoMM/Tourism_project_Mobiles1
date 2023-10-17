@@ -1,6 +1,7 @@
 package org.example;
 
 
+import org.example.controladores.ControladorEmpresaCultural;
 import org.example.controladores.ControladorUsuarioMembresia;
 import org.example.controladores.ControladorUsuarioXEvento;
 import org.example.entidades.UsuarioMembresia;
@@ -33,10 +34,7 @@ public class Main {
         System.out.println(usuarioInvitado.toString());
         */
 
-         Scanner scanner = new Scanner(System.in);
-
-         UsuarioMembresia usuarioMembresia = new UsuarioMembresia();
-
+/*
         ControladorUsuarioMembresia controladorUsuarioMembresia = new ControladorUsuarioMembresia();
         ControladorUsuarioXEvento controladorUsuarioXEvento = new ControladorUsuarioXEvento();
 
@@ -47,12 +45,20 @@ public class Main {
                 "carmencita@gmail.com","4",100.000);
 
 
-
-
-
-
         controladorUsuarioMembresia.consultarUsuario();
         controladorUsuarioXEvento.consultarUsuario();
+*/
+
+
+        ControladorEmpresaCultural controladorEmpresaCultural = new ControladorEmpresaCultural();
+
+        controladorEmpresaCultural.agregarEmpresa(
+                "1234456678","LeroLero","4","Empreds",
+                "Secretaria","santaigo@gmail.com",
+                "3122341925","Nuestra"
+        );
+
+        controladorEmpresaCultural.consultarEmpresa();
 
 
         /*
