@@ -32,10 +32,6 @@ public class ModeloUsuarioMembresia {
     @MapsId
     private ModeloUsuario modeloUsuario;
 
-    @OneToOne
-    private ModeloUsuarioInvitado modeloUsuarioInvitado;
-
-
 
     public ModeloUsuarioMembresia() {
     }

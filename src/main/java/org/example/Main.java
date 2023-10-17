@@ -41,6 +41,7 @@ public class Main {
 
         System.out.println(usuarioInvitado.toString());
         */
+
          Scanner scanner = new Scanner(System.in);
 
          UsuarioMembresia usuarioMembresia = new UsuarioMembresia();
@@ -70,6 +71,8 @@ public class Main {
         * 6. registrar empresa privada
         * 7. ver empresa cultural
         * 8. ver empresa privada*/
+
+
 
 
     }
