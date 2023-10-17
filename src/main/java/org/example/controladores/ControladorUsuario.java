@@ -3,8 +3,11 @@ package org.example.controladores;
 import org.example.entidades.Usuario;
 import org.example.entidades.UsuarioMembresia;
 import org.example.modeloDatos.ModeloUsuario;
+import org.example.modeloDatos.ModeloUsuarioMembresia;
 import org.example.servicios.ServicioUsuario;
 import org.example.validacion.UsuarioMembresiaValidacion;
+
+import java.util.List;
 
 public class ControladorUsuario {
 
@@ -26,4 +29,17 @@ public class ControladorUsuario {
         this.servicioUsuario.registrarUsuario(usuarioMembresia);
 
     }
+
+    public void consultarUsuario(){
+        List<ModeloUsuarioMembresia> usuarios = servicioUsuario.buscarUsuario();
+
+        for (ModeloUsuarioMembresia modeloUsuarioMembresia:usuarios) {
+            System.out.println("Nombre: " + modeloUsuarioMembresia.getModeloUsuario().getNombres());
+
+        }
+
+
+    }
+
+
 }

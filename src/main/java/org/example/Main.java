@@ -59,5 +59,18 @@ public class Main {
 
 
 
+        controladorUsuario.consultarUsuario();
+
+        /*
+        * 1.Registrar usuario membresia
+        * 2. Registrar usuario por evento
+        * 3. Ver usuario membresia
+        * 4. ver usuario por evento
+        * 5. registrar empresa cultura
+        * 6. registrar empresa privada
+        * 7. ver empresa cultural
+        * 8. ver empresa privada*/
+
+
     }
 }

@@ -7,6 +7,7 @@ import org.example.entidades.UsuarioMembresia;
 import org.example.modeloDatos.ModeloUsuario;
 import org.example.modeloDatos.ModeloUsuarioMembresia;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
@@ -44,7 +45,7 @@ public class ServicioUsuario {
         ModeloUsuarioMembresia modeloUsuarioMembresia = new ModeloUsuarioMembresia();
 
         modeloUsuarioMembresia.setModeloUsuario(new ModeloUsuario(
-                usuarioMembresia.getNombres(), usuarioMembresia.getDocumento(),
+                usuarioMembresia.getDocumento(),usuarioMembresia.getNombres(),
                 usuarioMembresia.getCorreo(), usuarioMembresia.getUbicacion()
         ));
 
@@ -53,12 +54,31 @@ public class ServicioUsuario {
         return modeloUsuarioMembresia;
     }
 
-    public List<ModeloUsuario> buscarUsuario(){
-        return null;
+    public List<ModeloUsuarioMembresia> buscarUsuario(){
+        String configuracionPersistencia = "conexionBD";
+
+        try(EntityManagerFactory entityManagerFactory =
+                    Persistence.createEntityManagerFactory(configuracionPersistencia);
+            EntityManager entityManager = entityManagerFactory.createEntityManager()){
+
+
+            //Establecer consulta para traer datos de la BD
+
+
+            String jpqlConsulta = "SELECT usuario FROM ModeloUsuarioMembresia usuario";
+
+            //
+            List<ModeloUsuarioMembresia> usuariosBD =
+                    entityManager.createQuery(jpqlConsulta, ModeloUsuarioMembresia.class).getResultList();
+
+            //Retornar
+
+            return usuariosBD;
+
+
+        }catch (Exception e){
+            System.out.println("Fallamos " + e.getMessage());
+            return null;
+        }
     }
-
-
-
-
-
 }
