@@ -1,19 +1,10 @@
 package org.example;
 
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import org.example.controladores.ControladorUsuario;
-import org.example.entidades.UsuarioInvitado;
+import org.example.controladores.ControladorUsuarioMembresia;
+import org.example.controladores.ControladorUsuarioXEvento;
 import org.example.entidades.UsuarioMembresia;
-import org.example.modeloDatos.ModeloUsuario;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -46,21 +37,23 @@ public class Main {
 
          UsuarioMembresia usuarioMembresia = new UsuarioMembresia();
 
-        ControladorUsuario controladorUsuario = new ControladorUsuario();
+        ControladorUsuarioMembresia controladorUsuarioMembresia = new ControladorUsuarioMembresia();
+        ControladorUsuarioXEvento controladorUsuarioXEvento = new ControladorUsuarioXEvento();
 
-        controladorUsuario.agregarUsuario("Saul Molina Rodriguez","6789",
-                "marta@gmail.com","1",120.000,"");
+        controladorUsuarioMembresia.agregarUsuario("SJuan David Gonzalez","110012",
+                "juandavid@gmail.com","2",120.000,"9999");
 
-
-       /* controladorUsuario.agregarUsuario("Camila Orozco","678910",
-                "cami@gmail.com","1",110.000,3);
-
-        controladorUsuario.agregarUsuario("Diomedez Diaz","6666",
-                "dio@gmail.com","2",100.000,12);*/
+        controladorUsuarioXEvento.agregarUsuario("Carmensa Orozco","23456",
+                "carmencita@gmail.com","4",100.000);
 
 
 
-        controladorUsuario.consultarUsuario();
+
+
+
+        controladorUsuarioMembresia.consultarUsuario();
+        controladorUsuarioXEvento.consultarUsuario();
+
 
         /*
         * 1.Registrar usuario membresia

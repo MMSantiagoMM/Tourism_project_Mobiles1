@@ -2,15 +2,15 @@ package org.example.controladores;
 
 import org.example.entidades.UsuarioMembresia;
 import org.example.modeloDatos.ModeloUsuarioMembresia;
-import org.example.servicios.ServicioUsuario;
+import org.example.servicios.ServicioUsuarioMembresia;
 
 import java.util.List;
 
-public class ControladorUsuario {
+public class ControladorUsuarioMembresia {
 
     UsuarioMembresia usuarioMembresia = new UsuarioMembresia();
 
-    ServicioUsuario servicioUsuario = new ServicioUsuario();
+    ServicioUsuarioMembresia servicioUsuarioMembresia = new ServicioUsuarioMembresia();
 
     public void agregarUsuario(String nombre, String documento,
                                  String correo, String ubicacion, Double cosotMensual,
@@ -26,12 +26,12 @@ public class ControladorUsuario {
         this.usuarioMembresia.setCostoMensual(cosotMensual);
 
 
-        this.servicioUsuario.registrarUsuario(usuarioMembresia);
+        this.servicioUsuarioMembresia.registrarUsuario(usuarioMembresia);
 
     }
 
     public void consultarUsuario(){
-        List<ModeloUsuarioMembresia> usuarios = servicioUsuario.buscarUsuario();
+        List<ModeloUsuarioMembresia> usuarios = servicioUsuarioMembresia.buscarUsuario();
 
         for (ModeloUsuarioMembresia modeloUsuarioMembresia:usuarios) {
             System.out.println("Nombre: " + modeloUsuarioMembresia.getFk().getNombres());

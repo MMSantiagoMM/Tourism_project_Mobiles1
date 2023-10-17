@@ -4,33 +4,30 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.example.entidades.UsuarioMembresia;
+import org.example.entidades.UsuarioPagoXEvento;
 import org.example.modeloDatos.ModeloUsuario;
 import org.example.modeloDatos.ModeloUsuarioInvitado;
 import org.example.modeloDatos.ModeloUsuarioMembresia;
+import org.example.modeloDatos.ModeloUsuarioXEvento;
 
 import java.util.List;
 
-public class ServicioUsuario {
+public class ServicioUsuarioXEvento {
 
-    public void registrarUsuario(UsuarioMembresia usuarioMembresia){
+    public void registrarUsuario(UsuarioPagoXEvento usuarioPagoXEvento){
         String configuracionPersistencia = "conexionBD";
 
         try (EntityManagerFactory entityManagerFactory =
                      Persistence.createEntityManagerFactory(configuracionPersistencia);
              EntityManager entityManager = entityManagerFactory.createEntityManager()) {
 
-            ModeloUsuarioMembresia modeloUsuarioMembresia =
-                    getModeloUsuarioMembresia(usuarioMembresia);
+            ModeloUsuarioXEvento modeloUsuarioMembresia =
+                    getModeloUsuarioMembresia(usuarioPagoXEvento);
 
-
-            //Inicio de la transacción
             entityManager.getTransaction().begin();
-
-            //Activar persistencia
-            //entityManager.persist(modeloUsuario);
+            
             entityManager.persist(modeloUsuarioMembresia);
 
-            //Registro de la operacion
             entityManager.getTransaction().commit();
 
             System.out.println("Exito en la transacción. Usuario registrado exitosamente");
@@ -40,23 +37,20 @@ public class ServicioUsuario {
         }
     }
 
-    private static ModeloUsuarioMembresia getModeloUsuarioMembresia(UsuarioMembresia usuarioMembresia) {
-        ModeloUsuarioMembresia modeloUsuarioMembresia = new ModeloUsuarioMembresia();
-        modeloUsuarioMembresia.setFk(new ModeloUsuario(
-                usuarioMembresia.getDocumento(),usuarioMembresia.getNombres(),
-                usuarioMembresia.getCorreo(), usuarioMembresia.getUbicacion()
+    private static ModeloUsuarioXEvento getModeloUsuarioMembresia(UsuarioPagoXEvento usuarioPagoXEvento) {
+        ModeloUsuarioXEvento modeloUsuarioXEvento = new ModeloUsuarioXEvento();
+        modeloUsuarioXEvento.setFk(new ModeloUsuario(
+                usuarioPagoXEvento.getDocumento(),usuarioPagoXEvento.getNombres(),
+                usuarioPagoXEvento.getCorreo(), usuarioPagoXEvento.getUbicacion()
         ));
 
-        modeloUsuarioMembresia.setCostoMensual(usuarioMembresia.getCostoMensual());
-        modeloUsuarioMembresia.setModeloUsuarioInvitado(
-                new ModeloUsuarioInvitado(usuarioMembresia.getCedulaInvitado()));
+        modeloUsuarioXEvento.setCostoPorEvento(usuarioPagoXEvento.getCostoPorEvento());
 
 
-
-        return modeloUsuarioMembresia;
+        return modeloUsuarioXEvento;
     }
 
-    public List<ModeloUsuarioMembresia> buscarUsuario(){
+    public List<ModeloUsuarioXEvento> buscarUsuario(){
         String configuracionPersistencia = "conexionBD";
 
         try(EntityManagerFactory entityManagerFactory =
@@ -64,14 +58,11 @@ public class ServicioUsuario {
             EntityManager entityManager = entityManagerFactory.createEntityManager()){
 
 
-            //Establecer consulta para traer datos de la BD
-
-
-            String jpqlConsulta = "SELECT usuario FROM ModeloUsuarioMembresia usuario";
+            String jpqlConsulta = "SELECT usuario FROM ModeloUsuarioXEvento usuario";
 
             //
-            List<ModeloUsuarioMembresia> usuariosBD =
-                    entityManager.createQuery(jpqlConsulta, ModeloUsuarioMembresia.class).getResultList();
+            List<ModeloUsuarioXEvento> usuariosBD =
+                    entityManager.createQuery(jpqlConsulta, ModeloUsuarioXEvento.class).getResultList();
 
             //Retornar
 
