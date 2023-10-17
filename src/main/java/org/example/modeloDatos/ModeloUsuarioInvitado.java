@@ -9,9 +9,8 @@ import java.time.LocalDate;
 public class ModeloUsuarioInvitado {
 
     @Id
-    @GeneratedValue
     @Column(name = "id_cedula")
-    private String cedula;
+    private Integer cedula;
 
     @Column(name = "fecha_invitacion")
     private LocalDate fechaInvitacion;
@@ -22,18 +21,18 @@ public class ModeloUsuarioInvitado {
     public ModeloUsuarioInvitado() {
     }
 
-    public ModeloUsuarioInvitado(String cedula, LocalDate fechaInvitacion, LocalDate fechaFinalizacion) {
+    public ModeloUsuarioInvitado(Integer cedula) {
         this.cedula = cedula;
-        this.fechaInvitacion = fechaInvitacion;
-        this.fechaFinalizacion = fechaFinalizacion;
+        this.fechaInvitacion = LocalDate.now();
+        this.fechaFinalizacion = fechaInvitacion.plusDays(5);
     }
 
 
-    public String getCedula() {
+    public Integer getCedula() {
         return cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(Integer cedula) {
         this.cedula = cedula;
     }
 

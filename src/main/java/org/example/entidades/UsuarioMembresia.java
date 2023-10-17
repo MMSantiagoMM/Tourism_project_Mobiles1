@@ -2,14 +2,13 @@ package org.example.entidades;
 
 import org.example.entidades.interfaces.IAnalitica;
 import org.example.entidades.interfaces.IReporte;
-import org.example.modeloDatos.ModeloUsuario;
 
 import java.time.LocalDate;
 
 public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<UsuarioMembresia> {
 
     private Double costoMensual;
-    private Integer idInvitado;
+    private Integer cedulaInvitado;
 
 
 
@@ -18,10 +17,10 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
 
     public UsuarioMembresia(Integer id, String documento, String nombres,
                             String correo, Integer ubicacion, Double costoMensual,
-                            Integer idInvitado) {
+                            Integer cedulaInvitado) {
         super(id, documento, nombres, correo, ubicacion);
         this.costoMensual = costoMensual;
-        this.idInvitado = idInvitado;
+        this.cedulaInvitado = cedulaInvitado;
     }
 
     public Double getCostoMensual() {
@@ -32,12 +31,12 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
         this.costoMensual = costoMensual;
     }
 
-    public Integer getIdInvitado() {
-        return idInvitado;
+    public Integer getCedulaInvitado() {
+        return cedulaInvitado;
     }
 
-    public void setIdInvitado(Integer idInvitado) {
-        this.idInvitado = idInvitado;
+    public void setCedulaInvitado(Integer cedulaInvitado) {
+        this.cedulaInvitado = cedulaInvitado;
     }
 
 

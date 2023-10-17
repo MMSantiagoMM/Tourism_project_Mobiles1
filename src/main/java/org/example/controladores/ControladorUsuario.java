@@ -1,11 +1,8 @@
 package org.example.controladores;
 
-import org.example.entidades.Usuario;
 import org.example.entidades.UsuarioMembresia;
-import org.example.modeloDatos.ModeloUsuario;
 import org.example.modeloDatos.ModeloUsuarioMembresia;
 import org.example.servicios.ServicioUsuario;
-import org.example.validacion.UsuarioMembresiaValidacion;
 
 import java.util.List;
 
@@ -17,8 +14,8 @@ public class ControladorUsuario {
 
     public void agregarUsuario(String nombre, String documento,
                                  String correo, String ubicacion, Double cosotMensual,
-                                 Integer idInvitado){
-        this.usuarioMembresia.setIdInvitado(idInvitado);
+                                 Integer cedulaInvitado){
+        this.usuarioMembresia.setCedulaInvitado(cedulaInvitado);
         this.usuarioMembresia.setNombres(nombre);
         this.usuarioMembresia.setDocumento(documento);
         this.usuarioMembresia.setCorreo(correo);
@@ -34,7 +31,7 @@ public class ControladorUsuario {
         List<ModeloUsuarioMembresia> usuarios = servicioUsuario.buscarUsuario();
 
         for (ModeloUsuarioMembresia modeloUsuarioMembresia:usuarios) {
-            System.out.println("Nombre: " + modeloUsuarioMembresia.getModeloUsuario().getNombres());
+            System.out.println("Nombre: " + modeloUsuarioMembresia.getFk().getNombres());
 
         }
 

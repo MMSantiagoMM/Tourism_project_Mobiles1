@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class ModeloUsuario {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer id;
 
@@ -32,7 +32,6 @@ public class ModeloUsuario {
     }
 
     public ModeloUsuario(String documento, String nombres, String correo, Integer ubicacion) {
-        this.id = id;
         this.documento = documento;
         this.nombres = nombres;
         this.correo = correo;

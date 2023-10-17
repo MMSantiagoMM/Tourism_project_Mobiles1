@@ -5,11 +5,10 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.example.entidades.UsuarioMembresia;
 import org.example.modeloDatos.ModeloUsuario;
+import org.example.modeloDatos.ModeloUsuarioInvitado;
 import org.example.modeloDatos.ModeloUsuarioMembresia;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Set;
 
 public class ServicioUsuario {
 
@@ -43,14 +42,17 @@ public class ServicioUsuario {
 
     private static ModeloUsuarioMembresia getModeloUsuarioMembresia(UsuarioMembresia usuarioMembresia) {
         ModeloUsuarioMembresia modeloUsuarioMembresia = new ModeloUsuarioMembresia();
-
-        modeloUsuarioMembresia.setModeloUsuario(new ModeloUsuario(
+        modeloUsuarioMembresia.setFk(new ModeloUsuario(
                 usuarioMembresia.getDocumento(),usuarioMembresia.getNombres(),
                 usuarioMembresia.getCorreo(), usuarioMembresia.getUbicacion()
         ));
 
         modeloUsuarioMembresia.setCostoMensual(usuarioMembresia.getCostoMensual());
-        modeloUsuarioMembresia.setIdInvitado(usuarioMembresia.getIdInvitado());
+        modeloUsuarioMembresia.setModeloUsuarioInvitado(
+                new ModeloUsuarioInvitado(usuarioMembresia.getCedulaInvitado()));
+
+
+
         return modeloUsuarioMembresia;
     }
 

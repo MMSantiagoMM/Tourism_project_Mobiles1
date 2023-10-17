@@ -3,9 +3,6 @@ package org.example.modeloDatos;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 public class ModeloUsuarioMembresia {
 
@@ -18,9 +15,6 @@ public class ModeloUsuarioMembresia {
     private Double costoMensual;
 
 
-    @Column(name = "idInvitado")
-    private Integer idInvitado;
-
 
     /*
     @OneToOne(cascade = CascadeType.ALL)
@@ -30,17 +24,21 @@ public class ModeloUsuarioMembresia {
 */
     @OneToOne
     @MapsId
-    private ModeloUsuario modeloUsuario;
+    private ModeloUsuario fk;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_invitado", referencedColumnName = "id_cedula")
+    private ModeloUsuarioInvitado modeloUsuarioInvitado;
 
 
     public ModeloUsuarioMembresia() {
     }
 
-    public ModeloUsuarioMembresia(Double costoMensual, Integer idInvitado, ModeloUsuario modeloUsuario) {
+    public ModeloUsuarioMembresia(Double costoMensual, ModeloUsuarioInvitado modeloUsuarioInvitado, ModeloUsuario fk) {
 
         this.costoMensual = costoMensual;
-        this.idInvitado = idInvitado;
-        this.modeloUsuario = modeloUsuario;
+        this.fk = fk;
+        this.modeloUsuarioInvitado = modeloUsuarioInvitado;
 
     }
 
@@ -52,13 +50,6 @@ public class ModeloUsuarioMembresia {
         this.costoMensual = costoMensual;
     }
 
-    public Integer getIdInvitado() {
-        return idInvitado;
-    }
-
-    public void setIdInvitado(Integer idInvitado) {
-        this.idInvitado = idInvitado;
-    }
 
     public Integer getId() {
         return id;
@@ -68,14 +59,22 @@ public class ModeloUsuarioMembresia {
         this.id = id;
     }
 
-    public ModeloUsuario getModeloUsuario() {
-        return modeloUsuario;
+    public ModeloUsuario getFk() {
+        return fk;
     }
 
-    public void setModeloUsuario(ModeloUsuario modeloUsuario) {
-        this.modeloUsuario = modeloUsuario;
+    public void setFk(ModeloUsuario fk) {
+        this.fk = fk;
     }
 
     public void setModeloUsuario(Integer id) {
+    }
+
+    public ModeloUsuarioInvitado getModeloUsuarioInvitado() {
+        return modeloUsuarioInvitado;
+    }
+
+    public void setModeloUsuarioInvitado(ModeloUsuarioInvitado modeloUsuarioInvitado) {
+        this.modeloUsuarioInvitado = modeloUsuarioInvitado;
     }
 }
