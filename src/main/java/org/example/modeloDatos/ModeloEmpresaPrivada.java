@@ -17,13 +17,18 @@ public class ModeloEmpresaPrivada{
     @Column(name = "cedula")
     private String cedula;
 
+    @MapsId
+    @OneToOne
+    private ModeloEmpresa fk;
+
 
     public ModeloEmpresaPrivada() {
     }
 
-    public ModeloEmpresaPrivada(String representanteLegal, String cedula) {
+    public ModeloEmpresaPrivada(String representanteLegal, String cedula,ModeloEmpresa fk) {
         this.representanteLegal = representanteLegal;
         this.cedula = cedula;
+        this.fk = fk;
     }
 
     public String getRepresentanteLegal() {
@@ -40,5 +45,12 @@ public class ModeloEmpresaPrivada{
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+
+    public ModeloEmpresa getFk() {
+        return fk;
+    }
+    public void setFk(ModeloEmpresa fk) {
+        this.fk = fk;
     }
 }

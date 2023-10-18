@@ -2,6 +2,7 @@ package org.example;
 
 
 import org.example.controladores.ControladorEmpresaCultural;
+import org.example.controladores.ControladorEmpresaPrivada;
 import org.example.controladores.ControladorUsuarioMembresia;
 import org.example.controladores.ControladorUsuarioXEvento;
 import org.example.entidades.UsuarioMembresia;
@@ -57,8 +58,16 @@ public class Main {
                 "Secretaria","santaigo@gmail.com",
                 "3122341925","Nuestra"
         );
-
         controladorEmpresaCultural.consultarEmpresa();
+
+
+
+        ControladorEmpresaPrivada controladorEmpresaPrivada = new ControladorEmpresaPrivada();
+        controladorEmpresaPrivada.agregarEmpresa("0123456789","Neuralink","3",
+                "esta es una empresa privada","Elon Musk","123456");
+
+        controladorEmpresaPrivada.consultarEmpresa();
+
 
 
         /*
