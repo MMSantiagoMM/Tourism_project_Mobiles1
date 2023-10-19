@@ -1,6 +1,8 @@
 package org.example.controladores;
 
 
+import com.google.gson.JsonObject;
+import com.sun.security.jgss.GSSUtil;
 import org.example.entidades.UsuarioPagoXEvento;
 import org.example.modeloDatos.ModeloUsuarioXEvento;
 import org.example.servicios.ServicioUsuarioXEvento;
@@ -29,9 +31,15 @@ public class ControladorUsuarioXEvento {
 
     public void consultarUsuario(){
         List<ModeloUsuarioXEvento> usuarios = servicioUsuarioXEvento.buscarUsuario();
+        JsonObject jsonObject = new JsonObject();
+        for (ModeloUsuarioXEvento usuario :usuarios) {
+            jsonObject.addProperty("nombre: ",usuario.getFk().getNombres());
+            jsonObject.addProperty(" documento: ",usuario.getFk().getDocumento());
+            jsonObject.addProperty(" correo: ",usuario.getFk().getCorreo());
+            jsonObject.addProperty("ubicación : ",usuario.getFk().getDocumento());
+            jsonObject.addProperty("Costo por evento: ", usuario.getCostoPorEvento());
 
-        for (ModeloUsuarioXEvento modeloUsuarioXEvento:usuarios) {
-            System.out.println("Nombre: " + modeloUsuarioXEvento.getFk().getNombres());
+            System.out.println(jsonObject);
 
         }
 

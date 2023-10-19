@@ -1,5 +1,6 @@
 package org.example.controladores;
 
+import com.google.gson.JsonObject;
 import org.example.entidades.EmpresaPrivada;
 import org.example.modeloDatos.ModeloEmpresaCultural;
 import org.example.modeloDatos.ModeloEmpresaPrivada;
@@ -30,9 +31,17 @@ public class ControladorEmpresaPrivada {
 
     public void consultarEmpresa(){
         List<ModeloEmpresaPrivada> empresas = servicioEmpresaPrivada.buscarEmpresa();
+        JsonObject jsonObject = new JsonObject();
 
-        for (ModeloEmpresaPrivada modeloEmpresaPrivada:empresas) {
-            System.out.println("Nombre: " + modeloEmpresaPrivada.getFk().getNombre());
+        for (ModeloEmpresaPrivada empresa:empresas) {
+            jsonObject.addProperty("Nombre: ",empresa.getFk().getNombre());
+            jsonObject.addProperty("Descripción: ",empresa.getFk().getDescripcion());
+            jsonObject.addProperty("Nit: ", empresa.getFk().getNit());
+            jsonObject.addProperty("Ubicación ", empresa.getFk().getUbicacion());
+            jsonObject.addProperty("Representante legal", empresa.getRepresentanteLegal());
+            jsonObject.addProperty("Cedula representante: ", empresa.getCedula());
+
+            System.out.println(jsonObject);
         }
 
     }

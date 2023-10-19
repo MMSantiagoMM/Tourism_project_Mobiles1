@@ -11,7 +11,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /*Gson gson = new Gson();
+ /*
+
+       Gson gson = new Gson();
         JsonObject jsonObject = new JsonObject();
         JsonArray jsonArray = new JsonArray();
 
@@ -26,29 +28,18 @@ public class Main {
         jsonArray.add("Spanish");
         jsonArray.add("English");
 
-        System.out.println(jsonArray);
+        System.out.println(jsonArray);*/
 
-        UsuarioMembresia usuarioMembresia = new UsuarioMembresia();
 
-        UsuarioInvitado usuarioInvitado = usuarioMembresia.agregarReferido("12345");
 
-        System.out.println(usuarioInvitado.toString());
-        */
 
-/*
-        ControladorUsuarioMembresia controladorUsuarioMembresia = new ControladorUsuarioMembresia();
+
         ControladorUsuarioXEvento controladorUsuarioXEvento = new ControladorUsuarioXEvento();
 
-        controladorUsuarioMembresia.agregarUsuario("SJuan David Gonzalez","110012",
-                "juandavid@gmail.com","2",120.000,"9999");
-
         controladorUsuarioXEvento.agregarUsuario("Carmensa Orozco","23456",
-                "carmencita@gmail.com","4",100.000);
+              "carmencita@gmail.com","4",100.000);
 
-
-        controladorUsuarioMembresia.consultarUsuario();
         controladorUsuarioXEvento.consultarUsuario();
-*/
 
 
         ControladorEmpresaCultural controladorEmpresaCultural = new ControladorEmpresaCultural();
@@ -58,15 +49,27 @@ public class Main {
                 "Secretaria","santaigo@gmail.com",
                 "3122341925","Nuestra"
         );
+
         controladorEmpresaCultural.consultarEmpresa();
 
 
 
         ControladorEmpresaPrivada controladorEmpresaPrivada = new ControladorEmpresaPrivada();
+
         controladorEmpresaPrivada.agregarEmpresa("0123456789","Neuralink","3",
                 "esta es una empresa privada","Elon Musk","123456");
 
         controladorEmpresaPrivada.consultarEmpresa();
+
+        ControladorUsuarioMembresia controladorUsuarioMembresia = new ControladorUsuarioMembresia();
+
+        controladorUsuarioMembresia.agregarUsuario("SJuan David Gonzalez","110012",
+                "juandavid@gmail.com","2",120.000,"9999");
+        controladorUsuarioMembresia.agregarUsuario("Jimena Orozco","110012",
+                "jimena@gmail.com","2",120.000,"");
+
+
+        controladorUsuarioMembresia.consultarUsuario();
 
 
 
@@ -79,8 +82,6 @@ public class Main {
         * 6. registrar empresa privada
         * 7. ver empresa cultural
         * 8. ver empresa privada*/
-
-
 
 
     }

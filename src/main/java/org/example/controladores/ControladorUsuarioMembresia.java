@@ -1,6 +1,9 @@
 package org.example.controladores;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.example.entidades.UsuarioMembresia;
+import org.example.modeloDatos.ModeloUsuario;
 import org.example.modeloDatos.ModeloUsuarioMembresia;
 import org.example.servicios.ServicioUsuarioMembresia;
 
@@ -30,14 +33,21 @@ public class ControladorUsuarioMembresia {
 
     }
 
-    public void consultarUsuario(){
+    public void consultarUsuario() {
         List<ModeloUsuarioMembresia> usuarios = servicioUsuarioMembresia.buscarUsuario();
+        JsonObject jsonObject = new JsonObject();
+        for (ModeloUsuarioMembresia usuario: usuarios) {
+            jsonObject.addProperty("nombre: ",usuario.getFk().getNombres());
+            jsonObject.addProperty(" documento: ",usuario.getFk().getDocumento());
+            jsonObject.addProperty(" correo: ",usuario.getFk().getCorreo());
+            jsonObject.addProperty("ubicación : ",usuario.getFk().getDocumento());
+            jsonObject.addProperty("costo mensual",usuario.getCostoMensual());
+            jsonObject.addProperty("Cedula invitado: ",usuario.getModeloUsuarioInvitado().getCedula());
+            jsonObject.addProperty("fecha invitación: ", usuario.getModeloUsuarioInvitado().getFechaInvitacion().toString());
+            jsonObject.addProperty("fecha finalización invitación: ", usuario.getModeloUsuarioInvitado().getFechaFinalizacion().toString());
 
-        for (ModeloUsuarioMembresia modeloUsuarioMembresia:usuarios) {
-            System.out.println("Nombre: " + modeloUsuarioMembresia.getFk().getNombres());
-
+            System.out.println(jsonObject);
         }
-
 
     }
 

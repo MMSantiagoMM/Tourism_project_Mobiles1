@@ -2,6 +2,7 @@ package org.example.modeloDatos;
 
 
 import jakarta.persistence.*;
+import org.hibernate.cfg.annotations.reflection.internal.XMLContext;
 
 import java.time.LocalDate;
 
