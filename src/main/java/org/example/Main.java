@@ -6,7 +6,9 @@ import org.example.controladores.ControladorEmpresaPrivada;
 import org.example.controladores.ControladorUsuarioMembresia;
 import org.example.controladores.ControladorUsuarioXEvento;
 import org.example.entidades.UsuarioMembresia;
+import org.example.menu.Menu;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Main {
@@ -32,7 +34,7 @@ public class Main {
 
 
 
-
+/*
 
         ControladorUsuarioXEvento controladorUsuarioXEvento = new ControladorUsuarioXEvento();
 
@@ -82,6 +84,8 @@ public class Main {
         * 6. registrar empresa privada
         * 7. ver empresa cultural
         * 8. ver empresa privada*/
+        Menu.menu();
+
 
 
     }

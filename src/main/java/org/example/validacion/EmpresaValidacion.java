@@ -21,8 +21,6 @@ public class EmpresaValidacion {
             throw new Exception();
         }
         return true;
-
-
     }
 
 

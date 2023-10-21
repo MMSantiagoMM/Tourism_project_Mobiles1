@@ -16,14 +16,14 @@ public class ControladorUsuarioXEvento {
     ServicioUsuarioXEvento servicioUsuarioXEvento = new ServicioUsuarioXEvento();
 
     public void agregarUsuario(String nombre, String documento,
-                               String correo, String ubicacion, Double cosotPorEvento){
+                               String correo, String ubicacion, Double costoPorEvento){
 
 
         this.usuarioPagoXEvento.setNombres(nombre);
         this.usuarioPagoXEvento.setDocumento(documento);
         this.usuarioPagoXEvento.setCorreo(correo);
         this.usuarioPagoXEvento.setUbicacion(Integer.valueOf(ubicacion));
-        this.usuarioPagoXEvento.setCostoPorEvento(cosotPorEvento);
+        this.usuarioPagoXEvento.setCostoPorEvento(costoPorEvento);
 
         this.servicioUsuarioXEvento.registrarUsuario(usuarioPagoXEvento);
 
