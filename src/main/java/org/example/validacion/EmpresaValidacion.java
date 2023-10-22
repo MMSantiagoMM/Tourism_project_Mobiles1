@@ -23,7 +23,13 @@ public class EmpresaValidacion {
         return true;
     }
 
-
-
+    public static Boolean validarDescripcion(String descripcion) throws Exception{
+        if(!maximoLetras(descripcion,150)){
+            throw new Exception(Mensaje.CANTIDADEXCESIVA.getMensaje());
+        }else if (regExp(descripcion,"^[ a-zA-Z0-9._%+-]$")) {
+            throw new Exception();
+        }
+        return true;
+    }
 
 }

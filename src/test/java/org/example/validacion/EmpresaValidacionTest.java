@@ -44,4 +44,24 @@ class EmpresaValidacionTest {
         assertTrue(resultado);
     }
 
+    @Test
+    void validarDescricionConMasDeCientoCincuentaLetras(){
+        Exception resultado = assertThrows(Exception.class,()->validarDescripcion("dewjdewiojdewijakJSKALsajKLSJAKLsA" +
+                "dwldnkeldnkewdnklewndlkewndlewkdnlekndklewndlewkndlkwendklewndlewkndlkwendlenkd" +
+                "lewkndekwldnewkldnlwekndlkwndlwkendlkwendlkewndklend4323432432"));
+        assertEquals(Mensaje.CANTIDADEXCESIVA.getMensaje(),resultado.getMessage());
+    }
+
+    @Test
+    void validarDescripcionValida(){
+        Boolean resultado = assertDoesNotThrow(()->validarDescripcion("Esta es una descripcion válidad" +
+                "para comprobar la efectividad del metodo implementado y su correcto " +
+                "funcionamiento"));
+        assertTrue(resultado);
+    }
+
+
+
+
+
 }

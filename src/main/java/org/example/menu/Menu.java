@@ -101,17 +101,19 @@ public class Menu {
                 case 5 -> {
                     System.out.println("Ingrese los siguientes datos para registrar la empresa cultural");
                     System.out.println(nombre);
-                    n = scanner.next();
+                    scanner.nextLine();
+                    n = scanner.nextLine();
                     System.out.println(descripcion);
-                    des = scanner.next();
+                    des = scanner.nextLine();
                     System.out.println(nit);
                     ni = scanner.next();
                     System.out.println(ubicacion);
                     u = scanner.next();
                     System.out.println("Ingrese el nombre de la entidad a la que pertenece");
-                    String entidad = scanner.next();
+                    scanner.nextLine();
+                    String entidad = scanner.nextLine();
                     System.out.println("Ingrese la misión de su empresa");
-                    String mision = scanner.next();
+                    String mision = scanner.nextLine();
                     System.out.println("Ingrese el email del responsable");
                     c = scanner.next();
                     System.out.println("Ingrese el numero de contecto del responsable");

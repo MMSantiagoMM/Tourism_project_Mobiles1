@@ -1,12 +1,15 @@
 package org.example.entidades;
 
 import org.example.entidades.interfaces.IReporte;
+import org.example.validacion.EmpresaCulturalValidacion;
 
 public class EmpresaCultural extends Empresa implements IReporte {
     private String entidad;
     private String mision;
     private String emailContacto;
     private String numeroContacto;
+
+    EmpresaCulturalValidacion empresaCulturalValidacion = new EmpresaCulturalValidacion();
 
 
 
@@ -32,7 +35,12 @@ public class EmpresaCultural extends Empresa implements IReporte {
     }
 
     public void setEntidad(String entidad) {
-        this.entidad = entidad;
+      try {
+          empresaCulturalValidacion.validarEntidad(entidad);
+          this.entidad = entidad;
+      }catch (Exception e){
+          System.out.println(e.getMessage());
+      }
     }
 
     public String getMision() {
@@ -40,7 +48,13 @@ public class EmpresaCultural extends Empresa implements IReporte {
     }
 
     public void setMision(String mision) {
-        this.mision = mision;
+        try {
+            empresaCulturalValidacion.validarMision(mision);
+            this.mision = mision;
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public String getEmailContacto() {
